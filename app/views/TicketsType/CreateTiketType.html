@@ -1,0 +1,142 @@
+{{set . "title" "Home"}}
+{{set . "navTitle" "Tickets Types"}}
+{{template "secureHeader.html" .}}
+
+<div class="page-content-wrapper">
+        <div class="content sm-gutter">
+            <div class="container-fluid m-t-10">
+                <div class="navigation">
+                    <div class="nav-tabs-header nav-tabs-linetriangle">
+                        <ul class="nav nav-tabs nav-tabs-simple" role="tablist" data-init-reponsive-tabs="collapse">
+                            <li><a href="{{reverseUrlUuid "Clients.Details" .vm.ClientID}}">{{.vm.ClientName}}</a></li>
+                            <li class=""><a href="{{reverseUrlUuid "Subscriptions.ByClientID" .vm.ClientID}}">Subscription</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Conferences.ListByClientID" .vm.ClientID}}">Conferences</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Sponsors.ListByConference" .vm.ID}}">Sponsors</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Sessions.List" .vm.ID}}">Sessions</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Speakers.ListByConference" .vm.ID}}">Speakers</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Attendies.ListByConference" .vm.ID}}">Attendees</a>
+
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Tickets.List" .vm.ID}}">Tickets</a>
+                            </li>
+                            <li class="active"><a href="{{reverseUrlUuid "TicketsType.List" .vm.ID}}">TicketsType</a>
+                            </li>
+                          
+                          </ul>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="container-fixed-lg">
+                        <div class="row m-t-10">
+                            <div class="col-xlg-5 col-lg-6 col-md-8 col-sm-10 col-xs-12 col-centered">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <h3 class="m-t-0 m-b-30">Tickets Type Information</h3>
+                                        <hr>
+                                        <!-- valid form rendering with dropzone on browser -->
+                                        <!-- <form action="/file-upload" class="dropzone no-margin">
+                                            <div class="fallback">
+                                            <input name="file" type="file" multiple />
+                                            </div>
+                                        </form> -->
+                                        
+                                        <form class="form-horizontal timepickerForm" id="" action="{{reverseUrlUuid "TicketsType.CreateTiketTypePost" .vm.ID}}"  method="POST" data-toggle="validator" role="form" >
+                                            <!-- <div class="form-group"><label
+                                                    class="col-sm-4 control-label m-t-5">Account
+                                                    Type</label>
+                                                <div class="col-sm-8">
+                                                    <p class="m-t-15 hint-text small"><span
+                                                            class="label font-montserrat fs-11 text-uppercase">pro</span><a
+                                                            href="https://pushy.me/pricing"
+                                                            class="color-inherit m-l-5" target="_blank"><i
+                                                                class="fa fa-question-circle hint-text"></i></a>
+                                                    </p>
+                                                    <p class="m-t-15 hint-text small"><span>
+                                                            Update your card
+                                                            details in the
+                                                            <a
+                                                                href="https://dashboard.pushy.me/settings/billing">billing
+                                                                page</a>.
+                                                            </span></p>
+                                                </div>
+                                            </div> -->
+                                            <div class="form-group"><label for="name"
+                                                    class="col-sm-4 control-label">Name</label>
+                                                <div class="col-sm-8"><input type="text"
+                                                        class="form-control" id="name" maxlength="50"
+                                                        required="" value="" name="name"  data-error="Please enter name.">
+                                                        <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group"><label for="price"
+                                                    class="col-sm-4 control-label ">Price</label>
+                                                <div class="col-sm-8"><input type="text"
+                                                        class="form-control" id="" maxlength="4"
+                                                        required="" name="price"  data-error="Please enter valid amount.">
+                                                        <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group"><label for="currency"
+                                                class="col-sm-4 control-label ">Currency</label>
+                                                <div class="col-sm-8"><input type="text"
+                                                    class="form-control" id="" maxlength="4"
+                                                    required="" name="currency"  data-error="Please enter currency.">
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group"><label for="description"
+                                                class="col-sm-4 control-label">Description</label>
+                                                <div class="col-sm-8">
+                                                    <textarea type="text"
+                                                    class="form-control" id="" maxlength="300"
+                                                     name="desc" required=""  data-error="Please enter details."></textarea>
+                                                     <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="isActive"
+                                                    class="col-sm-4 control-label">Active ?</label>
+                                                <div class="col-sm-8">
+                                                    <input type="checkbox"
+                                                        class="" id="isActive" name="isactive" checked />
+                                                        
+                                                </div>
+                                            </div>
+
+                                            
+                                            
+
+                                            
+                                            <br>
+                                            <div class="row text-center m-t-10"><button
+                                                    class="btn btn-cons btn-rounded btn-success m-t-20"
+                                                    type="submit">Create</button></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{template "securePageFooter.html" .}}
+    
+</div>
+<script>
+// var myDropzone = new Dropzone("div#myFileDrop", { url: "/file/post"});
+
+</script>
+
+
+
+
+{{template "secureFooter.html" .}}

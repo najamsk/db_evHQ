@@ -1,0 +1,97 @@
+<!-- <style type="text/css">
+	#sidebar {
+		position: absolute;
+		right: 0px;
+		top:69px;
+		max-width: 75%;
+		z-index: 1000;
+		background-color: #fee;
+		border: thin solid grey;
+		padding: 10px;
+	}
+	#toggleSidebar {
+		position: absolute;
+		right: 0px;
+		top: 50px;
+		background-color: #fee;
+	}
+
+</style>
+<div id="sidebar" style="display:none;">
+	<h4>Available pipelines</h4>
+	<dl>
+	{{ range $index, $value := .}}
+		<dt>{{$index}}</dt>
+		<dd>{{$value}}</dd>
+	{{end}}
+	</dl>
+	<h4>Flash</h4>
+	<dl>
+	{{ range $index, $value := .flash}}
+		<dt>{{$index}}</dt>
+		<dd>{{$value}}</dd>
+	{{end}}
+	</dl>
+
+	<h4>Errors</h4>
+	<dl>
+	{{ range $index, $value := .errors}}
+		<dt>{{$index}}</dt>
+		<dd>{{$value}}</dd>
+	{{end}}
+	</dl>
+</div>
+<a id="toggleSidebar" href="#" class="toggles"><i class="glyphicon glyphicon-chevron-left"></i></a>
+
+<script>
+	$sidebar = 0;
+	$('#toggleSidebar').click(function() {
+		if ($sidebar === 1) {
+			$('#sidebar').hide();
+			$('#toggleSidebar i').addClass('glyphicon-chevron-left');
+			$('#toggleSidebar i').removeClass('glyphicon-chevron-right');
+			$sidebar = 0;
+		}
+		else {
+			$('#sidebar').show();
+			$('#toggleSidebar i').addClass('glyphicon-chevron-right');
+			$('#toggleSidebar i').removeClass('glyphicon-chevron-left');
+			$sidebar = 1;
+		}
+
+    return false;
+	});
+</script> -->
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+<!-- without-bundel -->
+<!-- <script src="/public/js/jquery-3.2.1.min.js"></script>
+<script src="/public/js/modernizr.custom.js"></script>
+<script src="/public/js/jquery-ui.min.js"></script>
+<script src="/public/js/popper.min.js"></script>
+<script src="/public/js/bootstrap.min.js"></script>
+<script src="/public/js/moment.min.js"></script>
+<script src="/public/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/public/js/bootstrap-datepicker.js"></script>
+<script src="/public/js/daterangepicker.min.js"></script>
+<script src="/public/js/bootstrap-timepicker.min.js"></script>
+<script src="/public/js/moment-timezone-with-data.min.js"></script>
+<script src="/public/js/scripts.js"></script> -->
+<!-- /without-bundel -->
+<!-- with-bundel -->
+	<script src="/public/js/common_all.js"></script>
+<!-- /with-bundel -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+<script src="/public/js/dropzone.min.js"></script>
+
+</body>
+</html>

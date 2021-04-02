@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html class=" js no-touch csstransforms3d csstransitions">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Vheelz</title>
+    <meta name="description"
+        content="Pushy is a reliable push notification gateway perfect for time-sensitive, mission-critical apps.">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,shrink-to-fit=no">
+        <script async="" src="./public/js/analytics.js"></script>
+        <script type="text/javascript" src="./public/js/saved_resource.js"></script>
+        <link rel="shortcut icon" href="./public/img/favicon.png">
+        <link rel="stylesheet" href="./public/css/site.css">
+        <link rel="stylesheet" href="./public/css/responsive.css">
+    <!-- <link rel="shortcut icon" href="https://dashboard.pushy.me/favicon.png"> -->
+    <link rel="stylesheet" href="./public/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./public/css/common.css">
+
+
+</head>
+
+<body class="fixed-header dashboard menu-pin  windows desktop                     pace-done">
+    <div class="pace  pace-inactive">
+        <div class="pace-progress" data-progress-text="100%" data-progress="99"
+            style="transform: translate3d(100%, 0px, 0px);">
+            <div class="pace-progress-inner"></div>
+        </div>
+        <div class="pace-activity"></div>
+    </div>
+    <div id="root" class="root-container">
+        <div data-reactroot="" class="app">
+            <!-- react-empty: 50 -->
+            <nav class="page-sidebar" data-pages="sidebar">
+                <div class="sidebar-header"><img
+                        src="./public/img/sidebar-image.png"
+                        height="50"></div>
+                <div class="sidebar-menu">
+                    <div class="scroll-wrapper menu-items" style="position: relative;">
+                        <ul class="menu-items scroll-content"
+                            style="height: 680px; margin-bottom: 0px; margin-right: 0px; max-height: none;">
+                            <li><a title="" data-toggle="tooltip" data-placement="right" data-trigger="hover"
+                                    href="./dashboard.html" data-original-title="Dashboard"><span
+                                        class="icon-thumbnai"><i class="fa fa-home" style="width: 100%; text-align: center;"></i></span></a></li>
+                            <li><a title="" data-toggle="tooltip" data-placement="right" data-trigger="hover"
+                                    href="./Application.html" data-original-title="Applications"><span
+                                        class="active icon-thumbnail"><i class="fa fa-cube"></i></span></a></li>
+                            <li><a title="" data-toggle="tooltip" data-placement="right" data-trigger="hover"
+                                    href="./setting.html" data-original-title="Settings"><span
+                                        class="icon-thumbnail"><i class="fa fa-cog"></i></span></a></li>
+                        </ul>
+                        <div class="scroll-element scroll-x">
+                            <div class="scroll-element_outer">
+                                <div class="scroll-element_size"></div>
+                                <div class="scroll-element_track"></div>
+                                <div class="scroll-bar" style="width: 96px; left: 0px;"></div>
+                            </div>
+                        </div>
+                        <div class="scroll-element scroll-y">
+                            <div class="scroll-element_outer">
+                                <div class="scroll-element_size"></div>
+                                <div class="scroll-element_track"></div>
+                                <div class="scroll-bar" style="height: 96px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </nav>
+            <div class="page-container" style="background-color: rgb(245, 245, 245);">
+                <div class="header-container">
+                    <div class="header">
+                        <div class="relative">
+                            <div class="pull-left sm-table hidden-xs hidden-sm">
+                                <div class="header-inner">
+                                    <div class="title">
+                                        <h3>Vheelz</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pull-left full-height visible-sm visible-xs">
+                                <div class="header-inner"><a
+                                        class="btn-link cursor-pointer toggle-sidebar visible-sm-inline-block visible-xs-inline-block padding-5"
+                                        data-toggle="sidebar"><span class="icon-set menu-hambuger"></span></a></div>
+                            </div>
+                            <div class="pull-center text-center">
+                                <div class="header-inner">
+                                    <div class="brand inline"><a href="#" target="_blank"><img
+                                                src="./public/img/logo.png"
+                                                height="30"></a></div>
+                                </div>
+                            </div>
+                            <div class="pull-right full-height">
+                                <div class="m-t-5">
+                                    <div class="dropdown pull-left"><button class="profile-dropdown-toggle"
+                                            type="button" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false"><span
+                                                class="thumbnail-wrapper d32 circular inline m-t-5"><img
+                                                    src="./public/img/profile-image.png"
+                                                    width="32" height="32"></span>
+                                            <div class="pull-left visible-md visible-lg p-r-10 p-l-10 p-t-10"><span
+                                                    class="fs-14 font-heading semi-bold">Vheelz</span><i
+                                                    class="dropdown-arrow fa fa-angle-down"></i></div>
+                                        </button>
+                                        <ul class="dropdown-menu profile-dropdown" role="menu">
+                                            <li><a href="./documentation.html" target="_blank"><i
+                                                        class="fa fa-book"></i><!-- react-text: 138 --> Docs
+                                                    <!-- /react-text --></a></li>
+                                            <li><a href="./support.html" target="_blank"><i
+                                                        class="fa fa-question-circle"></i><!-- react-text: 142 -->
+                                                    Support
+                                                    <!-- /react-text --></a></li>
+                                            <li><a href="./setting.html"><i
+                                                        class="fa fa-cog"></i><!-- react-text: 146 --> Settings
+                                                    <!-- /react-text --></a></li>
+                                            <li><a class="cursor-pointer"><i class="fa fa-comment"></i>
+                                                    <!-- react-text: 150 --> Feedback
+                                                    <!-- /react-text --></a></li>
+                                            <li><a href="./contact.html" target="_blank"><i
+                                                        class="fa fa-envelope"></i><!-- react-text: 154 --> Contact Us
+                                                    <!-- /react-text --></a></li>
+                                            <li class="bg-master-lightest"><a class="cursor-pointer clearfix"><i
+                                                        class="fa fa-sign-out"></i><!-- react-text: 158 --> Logout
+                                                    <!-- /react-text --></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade slide-up disable-scroll" id="feedback-modal" tabindex="-1" role="dialog"
+                        aria-labelledby="modalSlideUpLabel" aria-hidden="false">
+                        <div class="modal-dialog">
+                            <div class="modal-content-wrapper">
+                                <div class="modal-content">
+                                    <div class="modal-header clearfix text-left"><button type="button" class="close"
+                                            data-dismiss="modal" aria-hidden="true"><i
+                                                class="pg-close fs-14"></i></button>
+                                        <h5 class="m-t-0"><span class="semi-bold">Send Feedback</span></h5>
+                                        <p>We'd love to hear what you think about our service and how we can improve it!
+                                        </p>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="form-group"><label>Tell us what you
+                                                            think</label><textarea rows="10" class="form-control"
+                                                            required=""></textarea></div>
+                                                </div>
+                                            </div>
+                                            <div class="row m-t-20 text-center"><button type="submit"
+                                                    class="btn btn-success btn-cons">Submit</button></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content-wrapper">
+                    <div class="content sm-gutter">
+                        <!-- react-empty: 697 -->
+                        <div class="container-fluid m-t-10">
+                            <div class="navigation">
+                                <div class="nav-tabs-header nav-tabs-linetriangle">
+                                    <ul class="nav nav-tabs nav-tabs-simple" role="tablist"
+                                        data-init-reponsive-tabs="collapse">
+                                        <li class=""><a data-toggle="tab" aria-expanded="false">Overview</a></li>
+                                        <li class=""><a data-toggle="tab" aria-expanded="false">API Authentication</a>
+                                        </li>
+                                        <li class=""><a data-toggle="tab" aria-expanded="false">Send Notifications</a>
+                                        </li>
+                                        <li class="active"><a data-toggle="tab" aria-expanded="true">Recent Devices</a>
+                                        </li>
+                                        <li class=""><a data-toggle="tab">Pending Notifications</a></li>
+                                        <li class=""><a data-toggle="tab">Device Map</a></li>
+                                        <li class=""><a data-toggle="tab">App Settings</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tab-content">
+                                <div class="container-fluid bg-white">
+                                    <div class="panel panel-transparent">
+                                        <div class="panel-heading top-left top-right p-t-25 p-r-0">
+                                            <div class="panel-controls">
+                                                <ul>
+                                                    <li><a data-toggle="refresh"
+                                                            class="portlet-refresh text-black cursor-pointer"><i
+                                                                class="fa fa-close"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body p-t-25 p-l-15 p-r-15">
+                                            <div class="dataTables_wrapper form-inline no-footer">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped dataTable no-footer" role="grid">
+                                                        <thead>
+                                                            <tr role="row">
+                                                                <th>Device Token</th>
+                                                                <th>Platform</th>
+                                                                <th>Country</th>
+                                                                <th>Registration Date</th>
+                                                                <th>Last Active</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>afaa145f7d73bece9598a2</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">Pakistan</td>
+                                                                <td class="p-l-5">11 hours ago</td>
+                                                                <td class="p-l-5">11 hours ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>8e7ee90fd5e376563f4428</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">Pakistan</td>
+                                                                <td class="p-l-5">21 hours ago</td>
+                                                                <td class="p-l-5">21 hours ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>bd9e51a6d4aeded23ad214</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">Pakistan</td>
+                                                                <td class="p-l-5">6 days ago</td>
+                                                                <td class="p-l-5">6 days ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>45637679501871b9ebaaff</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">Pakistan</td>
+                                                                <td class="p-l-5">6 days ago</td>
+                                                                <td class="p-l-5">6 days ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>f8aff8870a7ec49281635d</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">Russian Federation</td>
+                                                                <td class="p-l-5">7 days ago</td>
+                                                                <td class="p-l-5">7 days ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>a82750c19e099242681bb9</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">Norway</td>
+                                                                <td class="p-l-5">a month ago</td>
+                                                                <td class="p-l-5">a month ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>dec9a8a9dddcdc5ff9c0aa</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">Pakistan</td>
+                                                                <td class="p-l-5">2 months ago</td>
+                                                                <td class="p-l-5">2 months ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>272a4c5beed25eadd4e3da</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">Pakistan</td>
+                                                                <td class="p-l-5">2 months ago</td>
+                                                                <td class="p-l-5">14 days ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>eb456128d2188e73a807ed</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">Pakistan</td>
+                                                                <td class="p-l-5">2 months ago</td>
+                                                                <td class="p-l-5">2 months ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>dbd9d75bbcd6622c77c5cf</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">Pakistan</td>
+                                                                <td class="p-l-5">3 months ago</td>
+                                                                <td class="p-l-5">2 months ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>0f9df0ad152d71c6b4911c</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">Pakistan</td>
+                                                                <td class="p-l-5">3 months ago</td>
+                                                                <td class="p-l-5">2 months ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>01c71fd8dafc6b9d80da3b</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">Spain</td>
+                                                                <td class="p-l-5">3 months ago</td>
+                                                                <td class="p-l-5">3 months ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>cffbd9630a4d186fa1bed3</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">Pakistan</td>
+                                                                <td class="p-l-5">3 months ago</td>
+                                                                <td class="p-l-5">3 months ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>6e9c946ae014b242cb5d7c</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">Pakistan</td>
+                                                                <td class="p-l-5">3 months ago</td>
+                                                                <td class="p-l-5">3 months ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>b974200ca7dcbf626bb059</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">Pakistan</td>
+                                                                <td class="p-l-5">3 months ago</td>
+                                                                <td class="p-l-5">3 months ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>17a13cff8856e7c95adea2</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">United States</td>
+                                                                <td class="p-l-5">3 months ago</td>
+                                                                <td class="p-l-5">3 months ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>bc010acf3e7e4a340c2ce2</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">Pakistan</td>
+                                                                <td class="p-l-5">4 months ago</td>
+                                                                <td class="p-l-5">4 months ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>4f05cfbdc456f44a8e9c33</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">Pakistan</td>
+                                                                <td class="p-l-5">4 months ago</td>
+                                                                <td class="p-l-5">4 months ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>40d2fd37934a81b06d3aac</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">Pakistan</td>
+                                                                <td class="p-l-5">4 months ago</td>
+                                                                <td class="p-l-5">4 months ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>ec6e8780566b99a97b5769</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">Pakistan</td>
+                                                                <td class="p-l-5">4 months ago</td>
+                                                                <td class="p-l-5">3 months ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>89b6d185993253fb368f90</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">Pakistan</td>
+                                                                <td class="p-l-5">4 months ago</td>
+                                                                <td class="p-l-5">3 months ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>6803946bcfd9c7a5d575d7</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">Pakistan</td>
+                                                                <td class="p-l-5">4 months ago</td>
+                                                                <td class="p-l-5">4 months ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>63c094f759957eb739459d</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">France</td>
+                                                                <td class="p-l-5">4 months ago</td>
+                                                                <td class="p-l-5">4 months ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>0eabc0d19bf3e25cf05d22</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">Pakistan</td>
+                                                                <td class="p-l-5">5 months ago</td>
+                                                                <td class="p-l-5">4 months ago</td>
+                                                            </tr>
+                                                            <tr class="gradeA odd" role="row">
+                                                                <td><code>0418cecf56b5196daa3acc</code></td>
+                                                                <td class="p-l-5"><code>ios</code></td>
+                                                                <td class="p-l-5">Hungary</td>
+                                                                <td class="p-l-5">5 months ago</td>
+                                                                <td class="p-l-5">5 months ago</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid footer">
+                        <div class="copyright sm-text-center">
+                            <p class="small no-margin pull-left sm-pull-reset"><span class="hint-text">
+                                    <!-- react-text: 113 -->Copyright ©
+                                    <!-- /react-text -->
+                                    <!-- react-text: 114 -->2019
+                                    <!-- /react-text --></span><!-- react-text: 115 -->
+                                <!-- /react-text --><span class="font-montserrat">Pushy LLC</span>
+                                <!-- react-text: 117 -->.
+                                <!-- /react-text --><a href="#" target="_blank">Terms
+                                    &amp; Privacy</a></p>
+                            <p class="small no-margin pull-right sm-pull-reset"><span class="hint-text">Need
+                                    help?</span><!-- react-text: 121 -->
+                                <!-- /react-text --><a href="./contact.html" target="_blank">Contact us</a>
+                                <!-- react-text: 123 -->,
+                                <!-- /react-text --><span class="hint-text">we'd be glad to help!</span></p>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./public/js/bundle.js"></script><iframe frameborder="0"
+        allowtransparency="true" scrolling="no" name="__privateStripeMetricsController0" allowpaymentrequest="true"
+        src="./Vheelz-listing_files/outer.html" aria-hidden="true" tabindex="-1"
+        style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe>
+    <div
+        style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+        <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+        </div>
+    </div>
+    <div id="pg-visible-sm" class="visible-sm"></div>
+    <div id="pg-visible-xs" class="visible-xs"></div><iframe frameborder="0" allowtransparency="true" scrolling="no"
+        name="__privateStripeController1" allowpaymentrequest="true"
+        src="./Vheelz-listing_files/controller-f8c77612f7b1b0bc0ad59207aa8ee36e.html" aria-hidden="true" tabindex="-1"
+        style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe>
+    <div class="pg-colors">
+        <div class="bg-danger" data-color="danger"></div>
+        <div class="bg-master-light" data-color="master-light"></div>
+        <div class="bg-success" data-color="success"></div>
+        <div class="bg-primary" data-color="primary"></div>
+        <div class="bg-complete" data-color="complete"></div>
+    </div>
+</body>
+
+</html>

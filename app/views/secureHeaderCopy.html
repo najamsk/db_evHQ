@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html class=" js no-touch csstransforms3d csstransitions">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Settings</title>
+    <meta name="description"
+        content="Pushy is a reliable push notification gateway perfect for time-sensitive, mission-critical apps.">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,shrink-to-fit=no">
+        <!-- <script async="" src="./js/analytics.js"></script> -->
+        <!-- <script type="text/javascript" src="./js/saved_resource.js"></script> -->
+        <link rel="shortcut icon" href="/public/img/favicon.png">
+        <link rel="stylesheet" href="/public/css/site.css">	
+        <!-- <link rel="stylesheet" href="/public/css/bootstrap.min.css">	 -->
+
+        <link rel="stylesheet" href="/public/css/responsive.css">	
+        <!-- <link rel="stylesheet" href="/public/css/custom.css">	 -->
+
+
+    <!-- <link rel="shortcut icon" href="https://dashboard.pushy.me/favicon.png"> -->
+    <link rel="stylesheet" href="./public/css/font-awesome.min.css">
+    
+  
+</head>
+
+<body class="fixed-header dashboard menu-pin  windows desktop                                 sidebar-open pace-done">
+        <div class="pace  pace-inactive">
+            <div class="pace-progress" data-progress-text="100%" data-progress="99"
+                style="transform: translate3d(100%, 0px, 0px);">
+                <div class="pace-progress-inner"></div>
+            </div>
+            <div class="pace-activity"></div>
+        </div>
+        <div id="root" class="root-container">
+            <div data-reactroot="" class="app">
+                <!-- react-empty: 50 -->
+                <nav class="page-sidebar visible" data-pages="sidebar">
+                    <div class="sidebar-header"><img
+                            src="/public/img/sidebar-image.png"
+                            height="50"></div>
+                    <div class="sidebar-menu">
+                        <div class="scroll-wrapper menu-items" style="position: relative;">
+                            <ul class="menu-items scroll-content"
+                                style="height: 680px; margin-bottom: 0px; margin-right: 0px; max-height: none;">
+                                <li><a title="" data-toggle="tooltip" data-placement="right" data-trigger="hover"
+                                        href="https://dashboard.pushy.me/" data-original-title="Dashboard"><span
+                                            class="icon-thumbnail"><i class="fa fa-home"></i></span></a></li>
+                                <li><a title="" data-toggle="tooltip" data-placement="right" data-trigger="hover"
+                                        href="https://dashboard.pushy.me/apps" data-original-title="Applications"><span
+                                            class="icon-thumbnail"><i class="fa fa-cube"></i></span></a></li>
+                                <li><a title="settings" data-toggle="tooltip" data-placement="right" data-trigger="hover"
+                                        href="https://dashboard.pushy.me/settings" data-original-title="Settings"><span
+                                            class="active icon-thumbnail"><i class="fa fa-cog"></i></span></a></li>
+                            </ul>
+                            <div class="scroll-element scroll-x">
+                                <div class="scroll-element_outer">
+                                    <div class="scroll-element_size"></div>
+                                    <div class="scroll-element_track"></div>
+                                    <div class="scroll-bar" style="width: 96px; left: 0px;"></div>
+                                </div>
+                            </div>
+                            <div class="scroll-element scroll-y">
+                                <div class="scroll-element_outer">
+                                    <div class="scroll-element_size"></div>
+                                    <div class="scroll-element_track"></div>
+                                    <div class="scroll-bar" style="height: 96px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </nav>
+                <div class="page-container" style="">
+                        <div class="header-container">
+                            <div class="header">
+                                <div class="relative">
+                                    <div class="pull-left sm-table hidden-xs hidden-sm">
+                                        <div class="header-inner">
+                                            <div class="title">
+                                                <h3>{{.navTitle}}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pull-left full-height visible-sm visible-xs">
+                                        <div class="header-inner"><a
+                                                class="btn-link cursor-pointer toggle-sidebar visible-sm-inline-block visible-xs-inline-block padding-5"
+                                                data-toggle="sidebar"><span class="icon-set menu-hambuger"></span></a></div>
+                                    </div>
+                                    <div class="pull-center text-center">
+                                        <div class="header-inner">
+                                            <div class="brand inline"><a href="#" target="_blank"><img
+                                                        src="/public/img/logo.png"
+                                                        height="30"></a></div>
+                                        </div>
+                                    </div>
+                                    <div class="pull-right full-height">
+                                        <div class="m-t-5">
+                                            <div class="dropdown pull-left"><button class="profile-dropdown-toggle"
+                                                    type="button" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false"><span
+                                                        class="thumbnail-wrapper d32 circular inline m-t-5"><img
+                                                            src="/public/img/profile-image.png"
+                                                            width="32" height="32"></span>
+                                                    <div class="pull-left visible-md visible-lg p-r-10 p-l-10 p-t-10"><span
+                                                            class="fs-14 font-heading semi-bold">Vheelz</span><i
+                                                            class="dropdown-arrow fa fa-angle-down"></i></div>
+                                                </button>
+                                                <ul class="dropdown-menu profile-dropdown" role="menu">
+                                                    <li><a href="https://pushy.me/docs" target="_blank"><i
+                                                                class="fa fa-book"></i><!-- react-text: 138 --> Docs
+                                                            <!-- /react-text --></a></li>
+                                                    <li><a href="https://pushy.me/support" target="_blank"><i
+                                                                class="fa fa-question-circle"></i><!-- react-text: 142 -->
+                                                            Support
+                                                            <!-- /react-text --></a></li>
+                                                    <li><a href="./setting.html"><i
+                                                                class="fa fa-cog"></i><!-- react-text: 146 --> Settings
+                                                            <!-- /react-text --></a></li>
+                                                    <li><a class="cursor-pointer"><i class="fa fa-comment"></i>
+                                                            <!-- react-text: 150 --> Feedback
+                                                            <!-- /react-text --></a></li>
+                                                    <li><a href="./contact.html" target="_blank"><i
+                                                                class="fa fa-envelope"></i><!-- react-text: 154 --> Contact Us
+                                                            <!-- /react-text --></a></li>
+                                                    <li class="bg-master-lightest"><a class="cursor-pointer clearfix"><i
+                                                                class="fa fa-sign-out"></i><!-- react-text: 158 --> Logout
+                                                            <!-- /react-text --></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade slide-up disable-scroll" id="feedback-modal" tabindex="-1" role="dialog"
+                                aria-labelledby="modalSlideUpLabel" aria-hidden="false">
+                                <div class="modal-dialog">
+                                    <div class="modal-content-wrapper">
+                                        <div class="modal-content">
+                                            <div class="modal-header clearfix text-left"><button type="button" class="close"
+                                                    data-dismiss="modal" aria-hidden="true"><i
+                                                        class="pg-close fs-14"></i></button>
+                                                <h5 class="m-t-0"><span class="semi-bold">Send Feedback</span></h5>
+                                                <p>We'd love to hear what you think about our service and how we can improve it!
+                                                </p>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group"><label>Tell us what you
+                                                                    think</label><textarea rows="10" class="form-control"
+                                                                    required=""></textarea></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row m-t-20 text-center"><button type="submit"
+                                                            class="btn btn-success btn-cons">Submit</button></div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>

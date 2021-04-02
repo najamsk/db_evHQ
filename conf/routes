@@ -1,0 +1,119 @@
+# Routes Config
+#
+# This file defines all application routes (Higher priority routes first)
+#
+
+module:testrunner
+# module:jobs
+
+
+GET            /                                                                                                           Account.Login
+GET            /admin                                                                                                      Clients.Index
+GET            /admin/dashboard                                                                                            Dashboard.Index
+GET            /admin/clients                                                                                              Clients.Index
+GET            /admin/clients/create                                                                                       Clients.Create
+POST           /admin/clients/create                                                                                       Clients.CreatePost
+POST           /admin/clients/details/:id                                                                                  Clients.UpdateClient
+POST           /admin/clients/search                                                                                       Clients.Search
+GET            /admin/clients/details/:id                                                                                  Clients.Details
+
+
+GET            /admin/clients/details/:id/Subscription                                                                     Clients.Subscription
+
+GET            /admin/subscriptions/:id                                                                                    Subscriptions.BySubscriptionID
+GET            /admin/subscriptions/client/:id                                                                             Subscriptions.ByClientID
+POST           /admin/subscriptions/Updatesubscription                                                                     Subscriptions.UpdateSubscription
+
+
+GET            /admin/conferences                                                                                          Conferences.List
+GET            /admin/conferences/client/:id                                                                               Conferences.ListByClientID
+
+GET            /admin/conferences/create/:id                                                                               Conferences.Create
+Post           /admin/conferences/create/:id                                                                               Conferences.CreatePost
+GET            /admin/conferences/details/:id                                                                              Conferences.Edit
+POST           /admin/conferences/details/:id                                                                              Conferences.EditPost
+
+GET            /admin/conferences/payments                                                                                 Conferences.Payments
+GET            /account                                                                                                    Account.Index
+GET            /account/logout                                                                                             Account.Logout
+GET            /account/login                                                                                              Account.Login
+GET            /account/reset                                                                                              Account.ResetPassword
+POST           /account/reset                                                                                              Account.ResetPasswordPost
+GET            /account/Update                                                                                             Account.UpdatePassword
+POST           /account/login                                                                                              Account.LoginPost
+POST           /account/forget                                                                                             Account.ForgotPassword
+
+GET            /admin/sessions/list/:id                                                                                    Sessions.List
+GET            /admin/sessions/:id                                                                                         Sessions.Details
+GET            /admin/sessions/create/:id                                                                                  Sessions.Create
+POST           /admin/sessions/create/:id                                                                                  Sessions.CreatePost
+POST           /admin/sessions/update/:id                                                                                  Sessions.EditPost
+GET            /admin/conferences/:confid/speakers/:id/sessions                                                            Sessions.ListBySpeaker
+GET            /admin/conferences/:sessionId/speakers/:id/delete                                                           Speakers.DeleteSessionSpeaker
+
+GET            /admin/conferences/speakers/:id                                                                             Speakers.ListByConference
+GET            /admin/conferences/:sessionId/speakers/details/:id                                                          Speakers.Edit
+POST           /admin/conferences/:confiD/speakers/details/:id                                                             Speakers.EditPost
+GET            /admin/conferences/:confid/sessions/:id/speakers                                                            Speakers.ListBySession
+POST           /admin/conferences/speaker/search                                                                           Speakers.search
+GET            /admin/conferences/:confid/sessions/create/:id                                                              Speakers.Create
+POST           /admin/conferences/:confid/sessions/create/:id                                                              Speakers.AddSessionspeaker
+
+GET            /admin/conferences/:id/sponsors                                                                             Sponsors.ListByConference
+GET            /admin/conferences/:confid/sponsors/:id                                                                     Sponsors.Detail
+POST           /admin/conferences/:confiD/sponsors/:id/update                                                              Sponsors.Update
+GET            /admin/conferences/:id/sponsor/create                                                                       Sponsors.Create
+POST           /admin/conferences/:confiD/sponsor/create                                                                   Sponsors.CreatePost
+
+
+
+
+GET            /admin/conferences/Attendies/:id                                                                            Attendies.ListByConference
+GET            /admin/conferences/:confid/attendies/details/:id                                                            Attendies.Edit
+POST           /admin/conferences/:confid/attendies/details/:id                                                            Attendies.EditPost
+
+Get            /admin/dev/image                                                                                            Dev.Index
+Get            /admin/dev/image/upload                                                                                     Dev.Upload
+POST           /admin/dev/image/upload                                                                                     Dev.UploadPost
+
+GET            /admin/conference/tickets/type/list/:Id                                                                     TicketsType.List
+GET            /admin/conference/tickets/type/create/:confid                                                               TicketsType.CreateTiketType
+POST           /admin/conference/tickets/type/create/:confid                                                               TicketsType.CreateTiketTypePost
+GET            /admin/conference/:confid/tickets/type/details/:id                                                          TicketsType.EditTiketType
+POST           /admin/conference/:confid/tickets/type/update/:id                                                           TicketsType.EditTiketTypePost
+
+GET            /admin/conference/tickets/list/:Id                                                                          Tickets.List
+GET            /admin/conference/tickets/create/:confid                                                                    Tickets.Create
+POST           /admin/conference/tickets/create/:confid                                                                    Tickets.CreatePost
+GET            /admin/conference/:confid/tickets/details/:id                                                               Tickets.Edit
+POST           /admin/conference/:confid/tickets/update/:id                                                                Tickets.EditPost
+
+GET            /admin/users/list                                                                                           Users.List
+GET            /admin/users/detail/:id                                                                                     Users.Edit
+POST           /admin/users/update/:id                                                                                     Users.EditPost
+POST           /admin/users/search                                                                                         Users.Search
+GET            /admin/users/search                                                                                         Users.GetSearch
+GET            /admin/users/changepassword                                                                                 Users.ChangePassword
+POST           /admin/users/changepassword                                                                                 Users.PostChangePassword
+
+
+
+#          GET                                                                                             /admin/subscriptions/:name?name                                                Subscriptions.Index
+##          Ignore                                                                                          favicon                                                                        requests
+GET      /favicon.ico                                   404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/*filepath                       Static.Serve("public")
+
+# uploads folder can bet set a static serve thing, better to have a rote though
+GET     /*filepath                              Static.Serve("uploads")
+
+# Catch all, this will route any request into the controller path
+#
+#                    **** WARNING ****
+# Enabling this exposes any controller and function to the web.
+# ** This is a serious security issue if used online **
+#
+# For rapid development uncomment the following to add new controller.action endpoints
+# without having to add them to the routes table.
+# *       /:controller/:action                    :controller.:action

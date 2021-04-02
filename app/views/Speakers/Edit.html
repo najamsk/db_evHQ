@@ -1,0 +1,240 @@
+{{set . "title" "Home"}}
+{{set . "navTitle" "Speaker"}}
+{{template "secureHeader.html" .}}
+
+<div class="page-content-wrapper">
+        <div class="content sm-gutter">
+            <div class="container-fluid m-t-10">
+                <div class="navigation">
+                    <div class="nav-tabs-header nav-tabs-linetriangle">
+                        <ul class="nav nav-tabs nav-tabs-simple" role="tablist" data-init-reponsive-tabs="collapse">
+                            <li><a href="{{reverseUrlUuid "Clients.Details" .speaker.ClientID}}">{{.speaker.ClientName}}</a></li>
+                            <li class=""><a href="{{reverseUrlUuid "Subscriptions.ByClientID" .speaker.ClientID}}">Subscription</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Conferences.ListByClientID" .speaker.ClientID}}">Conferences</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Sponsors.ListByConference" .speaker.ConfID}}">Sponsors</a>
+                            </li>
+                            <li class="active"><a href="{{reverseUrlUuid "Sessions.List" .speaker.ConfID}}">Sessions</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuidTwoparams "Speakers.ListBySession" .speaker.ConfID .speaker.SessionID}}">Speakers</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Attendies.ListByConference" .speaker.ConfID}}">Attendees</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Tickets.List" .speaker.ConfID}}">Tickets</a>
+                            </li>
+                          </ul>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="container-fixed-lg">
+                        <div class="row m-t-10">
+                            <div class="col-xlg-5 col-lg-6 col-md-8 col-sm-10 col-xs-12 col-centered">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <h3 class="m-t-0 m-b-30">Speaker Information</h3>
+                                        {{ if.flash.error}}
+                                        <div class="alert alert-danger" role="alert">
+                                            <button class="close" data-dismiss="alert"></button>
+                                            <strong>{{.flash.error}}</strong>
+                                            </div>
+                                      {{end}}
+
+                                       {{ if.flash.success}}
+                                        <div class="alert alert-success" role="alert">
+                                            <button class="close" data-dismiss="alert"></button>
+                                            <strong>{{.flash.success}}</strong>
+                                            </div>
+                                            {{end}}
+                                        <hr>
+                                        <!-- valid form rendering with dropzone on browser -->
+                                        <!-- <form action="/file-upload" class="dropzone no-margin">
+                                            <div class="fallback">
+                                            <input name="file" type="file" multiple />
+                                            </div>
+                                        </form> -->
+                                        
+                                        <form class="form-horizontal timepickerForm" id="" action="{{reverseUrlUuidTwoparams "Speakers.EditPost" .speaker.ID .speaker.ConfID}}" method="POST" data-toggle="validator" role="form"  enctype="multipart/form-data" >
+                                            <!-- <div class="form-group"><label
+                                                    class="col-sm-4 control-label m-t-5">Account
+                                                    Type</label>
+                                                <div class="col-sm-8">
+                                                    <p class="m-t-15 hint-text small"><span
+                                                            class="label font-montserrat fs-11 text-uppercase">pro</span><a
+                                                            href="https://pushy.me/pricing"
+                                                            class="color-inherit m-l-5" target="_blank"><i
+                                                                class="fa fa-question-circle hint-text"></i></a>
+                                                    </p>
+                                                    <p class="m-t-15 hint-text small"><span>
+                                                            Update your card
+                                                            details in the
+                                                            <a
+                                                                href="https://dashboard.pushy.me/settings/billing">billing
+                                                                page</a>.
+                                                            </span></p>
+                                                </div>
+                                            </div> -->
+                                            <div class="form-group"><label for="firstname"
+                                                    class="col-sm-4 control-label">First Name</label>
+                                                <div class="col-sm-8"><input type="text"
+                                                        class="form-control" id="name" maxlength="20"
+                                                        required="" value="{{.speaker.FirstName}}" name="firstname"  data-error="Please enter name.">
+                                                        <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group"><label for="lastname"
+                                                    class="col-sm-4 control-label">Last Name</label>
+                                                <div class="col-sm-8"><input type="text"
+                                                        class="form-control" id="name" maxlength="20"
+                                                        required value="{{.speaker.LastName}}"  name="lastname" data-error="Please enter lastname.">
+                                                        <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group"><label for="email"
+                                                class="col-sm-4 control-label">Email</label>
+                                            <div class="col-sm-8"><input type="text"
+                                                    class="form-control" id="name"
+                                                    required value="{{.speaker.Email}}" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" data-error="Please enter email.">
+                                                    <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group"><label for="phonenumber"
+                                            class="col-sm-4 control-label">Phone</label>
+                                        <div class="col-sm-8"><input type="text"
+                                                class="form-control" id="name"
+                                                required value="{{.speaker.PhoneNumber}}" name="phonenumber" data-error="Please enter phonenumber.">
+                                                <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="organization" class="col-sm-4 control-label">Organization
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="name" required value="{{.speaker.Organization}}"
+                                                name="organization" data-error="Please enter organization.">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="designation" class="col-sm-4 control-label">Designation
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="name" required value="{{.speaker.Designation}}"
+                                                name="designation" data-error="Please enter designation.">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group"><label for="poster"
+                                        class="col-sm-4 control-label">Poster</label>
+                                        <div class="col-sm-8 fallback">
+                                                <input name="poster" type="file" />
+                                                <div class="help-block with-errors"></div>
+                                        </div>
+                                        <div class="col-sm-12 text-center ontrol-label">
+                                            <label>(Image size {{.postersize}}mb, {{.imageheight}}x{{.imagewidth}})</label>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="form-group"><label for="profile"
+                                        class="col-sm-4 control-label">Profile</label>
+                                        <div class="col-sm-8 fallback">
+                                                <input name="profile" type="file"/>
+                                                <div class="help-block with-errors"></div>
+                                        </div>
+                                        <div class="col-sm-12 text-center ontrol-label">
+                                            <label>(Image size {{.profilesize}}mb, {{.imageheight}}x{{.imagewidth}})</label>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="facebook" class="col-sm-4 control-label">Facebook
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="name"  value="{{.speaker.Facebook}}"
+                                                    name="facebook">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label for="twitter" class="col-sm-4 control-label">Twitter
+                                                </label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="name"  value="{{.speaker.Twitter}}"
+                                                        name="twitter">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                    <label for="linkedin" class="col-sm-4 control-label">Linkedin
+                                                    </label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control" id="name"  value="{{.speaker.Linkedin}}"
+                                                            name="linkedin">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label for="youtube" class="col-sm-4 control-label">Youtube
+                                                        </label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="name"  value="{{.speaker.Youtube}}"
+                                                                name="youtube">
+                                                        </div>
+                                                    </div>
+
+                                    <div class="form-group">
+                                            <label for="confweight" class="col-sm-4 control-label">Conference Sort
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="designation"
+                                                name="conferenceWeight" value="{{.speaker.ConferenceWeight}}" pattern="[0-9]+" data-error="Please enter valid number.">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label for="sessionweight" class="col-sm-4 control-label">Session Sort
+                                                </label>
+                                                <div class="col-sm-8">
+                                                        <input type="text" class="form-control" id="sessionWght"
+                                                        name="sessionWeight" pattern="[0-9]+"  value="{{.speaker.SessionWeight}}" data-error="Please enter valid number."> 
+                                                        
+                                                    <div class="help-block with-errors"></div>
+                                                   <input type="hidden" class="form-control"
+                                                    name="sessionid" value="{{.speaker.SessionID}}">
+                                                </div>
+                                            </div>
+
+
+                                    <div class="form-group"><label for="bio"
+                                        class="col-sm-4 control-label">Bio</label>
+                                        <div class="col-sm-8">
+                                            <textarea type="text"
+                                            class="form-control" id="" rows="4" maxlength="300"
+                                             name="bio" required=""  data-error="Please enter details.">{{.speaker.Bio}}</textarea>
+                                             <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row text-center m-t-10"><button
+                                        class="btn btn-cons btn-rounded btn-success m-t-20"
+                                        type="submit">Update</button>
+                                    </div>
+                                    
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{template "securePageFooter.html" .}}
+    
+</div>
+<script>
+// var myDropzone = new Dropzone("div#myFileDrop", { url: "/file/post"});
+
+</script>
+
+
+
+
+{{template "secureFooter.html" .}}

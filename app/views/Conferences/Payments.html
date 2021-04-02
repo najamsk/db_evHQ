@@ -1,0 +1,109 @@
+{{set . "title" "Home"}}
+{{set . "navTitle" "Conference"}}
+{{template "secureHeader.html" .}}
+
+<div class="page-content-wrapper">
+        <div class="content sm-gutter">
+            <div class="container-fluid m-t-10">
+                <div class="navigation">
+                    <div class="nav-tabs-header nav-tabs-linetriangle">
+                        <ul class="nav nav-tabs nav-tabs-simple" role="tablist"
+                            data-init-reponsive-tabs="collapse">
+                            <li class="active"><a data-toggle="tab">Account</a></li>
+                            <li class=""><a data-toggle="tab">Billing</a></li>
+                            <li class=""><a data-toggle="tab">Security</a></li>
+                            <li class=""><a href="conference/payments">Payments</a></li>
+                            <li class=""><a href="dashboard">Dashboard</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="container-fixed-lg">
+                        <div class="row m-t-10">
+                            <div class="col-xlg-5 col-lg-6 col-md-8 col-sm-10 col-xs-12 col-centered">
+                                <div class="panel panel-default">
+                                    <div class="panel-body padding-50 sm-padding-30">
+                                        <h3 class="m-t-0 m-b-30">Account Information</h3>
+                                        <hr>
+                                        <form class="form-horizontal">
+                                            <div class="form-group"><label
+                                                    class="col-sm-4 control-label m-t-5">Account
+                                                    Type</label>
+                                                <div class="col-sm-8">
+                                                    <p class="m-t-15 hint-text small"><span
+                                                            class="label font-montserrat fs-11 text-uppercase">pro</span><a
+                                                            href="https://pushy.me/pricing"
+                                                            class="color-inherit m-l-5" target="_blank"><i
+                                                                class="fa fa-question-circle hint-text"></i></a>
+                                                    </p>
+                                                    <p class="m-t-15 hint-text small"><span>
+                                                            <!-- react-text: 3449 -->Update your card
+                                                            details in the
+                                                            <!-- /react-text --><a
+                                                                href="https://dashboard.pushy.me/settings/billing">billing
+                                                                page</a><!-- react-text: 3451 -->.
+                                                            <!-- /react-text --></span></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group"><label for="name"
+                                                    class="col-sm-4 control-label">Name</label>
+                                                <div class="col-sm-8"><input type="text"
+                                                        class="form-control" id="name" maxlength="50"
+                                                        required="" value="Vheelz"></div>
+                                            </div>
+                                            <div class="form-group"><label for="name"
+                                                    class="col-sm-4 control-label">Company Name</label>
+                                                <div class="col-sm-8"><input type="text"
+                                                        class="form-control" id="company" maxlength="50">
+                                                </div>
+                                            </div>
+                                            <div class="form-group"><label for="email"
+                                                    class="col-sm-4 control-label">Email Address</label>
+                                                <div class="col-sm-8"><input type="email"
+                                                        class="form-control" id="email" maxlength="50"
+                                                        required="" value="vheelzapp@gmail.com"></div>
+                                            </div>
+                                            <div class="form-group"><label for="password"
+                                                    class="col-sm-4 control-label">Account Password</label>
+                                                <div class="col-sm-8"><input type="password"
+                                                        class="form-control" id="password" required="">
+                                                    <p class="m-t-15 hint-text small">Please enter your
+                                                        current account password to update your account
+                                                        information.</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group"><label
+                                                    class="col-sm-4 control-label m-t-5">Avatar</label>
+                                                <div class="col-sm-8">
+                                                    <p class="m-t-15 hint-text small">
+                                                        <!-- react-text: 3473 -->You can change your avatar
+                                                        on
+                                                        <!-- /react-text --><a
+                                                            href="https://en.gravatar.com/emails/"
+                                                            target="_blank">Gravatar</a>
+                                                        <!-- react-text: 3475 -->.
+                                                        <!-- /react-text -->
+                                                    </p>
+                                                </div>
+                                            </div><br>
+                                            <div class="row text-center m-t-10"><button
+                                                    class="btn btn-cons btn-rounded btn-success m-t-20"
+                                                    type="submit">Update</button></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{template "securePageFooter.html" .}}
+    
+</div>
+
+
+
+
+
+{{template "secureFooter.html" .}}

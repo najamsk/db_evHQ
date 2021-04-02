@@ -1,0 +1,118 @@
+{{set . "title" "Home"}}
+{{set . "navTitle" "TicketType - list"}}
+{{template "secureHeader.html" .}}
+<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"> -->
+<div class="page-content-wrapper">
+  <div class="content sm-gutter">
+    <!-- react-empty: 697 -->
+    <div class="container-fluid m-t-10">
+      <div class="navigation">
+        <div class="nav-tabs-header nav-tabs-linetriangle">
+        
+            <ul class="nav nav-tabs nav-tabs-simple" role="tablist" data-init-reponsive-tabs="collapse">
+            <li><a href="{{reverseUrlUuid "Clients.Details" .vm.ClientID}}">{{.vm.ClientName}}</a></li>
+            <li class=""><a href="{{reverseUrlUuid "Subscriptions.ByClientID" .vm.ClientID}}">Subscription</a>
+            </li>
+            <li class=""><a href="{{reverseUrlUuid "Conferences.ListByClientID" .vm.ClientID}}">Conferences</a>
+            </li>
+            <li class=""><a href="{{reverseUrlUuid "Sponsors.ListByConference" .vm.ConfID}}">Sponsors</a>
+            </li>
+            <li class=""><a href="{{reverseUrlUuid "Sessions.List" .vm.ConfID}}">Sessions</a>
+            </li>
+            <li class=""><a href="{{reverseUrlUuid "Speakers.ListByConference" .vm.ConfID}}">Speakers</a>
+            </li>
+            <li class=""><a href="{{reverseUrlUuid "Attendies.ListByConference" .vm.ConfID}}">Attendees</a>
+            </li>
+            <li class=""><a href="{{reverseUrlUuid "Tickets.List" .vm.ConfID}}">Tickets</a>
+            </li>
+            <li class="active"><a href="{{reverseUrlUuid "TicketsType.List" .vm.ConfID}}">TicketsType</a>
+            </li>
+            
+            
+          
+          </ul>
+        </div>
+      </div>
+      <div class="tab-content">
+
+        <!-- start of table panel -->
+        <div class="container-fluid bg-white">
+
+          <div class="panel panel-transparent">
+
+            <div class="panel-body p-t-25 p-l-15 p-r-15">
+              <!-- toolbar started for table -->
+              <div class="btn-toolbar flex-wrap" role="toolbar">
+                <div class="btn-group sm-m-t-10">
+                    <a href="{{reverseUrlUuid "TicketsType.CreateTiketType" .vm.ConfID}}" class="btn btn-default">
+                    <i class="fa fa-plus"></i>
+                    </a>
+                  
+                  <!-- <a class="btn btn-default" data-toggle="modal" data-target="#searchClientModal" title="Search" style="margin-left: 5px"><i class="fa fa-search"></i>
+                  </a> -->
+                  
+                </div>
+                
+              </div> <!-- btn-toolbar ends -->
+              
+
+              <div class="dataTables_wrapper form-inline no-footer">
+                <div class="table-responsive">
+                  <table class="table table-striped dataTable no-footer" role="grid">
+                    <thead>
+                      <tr role="row">
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Currency</th>
+                        <th>Total Tickects</th>
+                        <th>Consumed Tickects</th>
+                        <th>IsActive</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                        
+                      {{$confiD:=.vm.ConfID}}
+                        {{range .vm.TicketType}}
+                        <tr>
+                          <td><a href="{{reverseUrlUuidTwoparams "TicketsType.EditTiketType" $confiD .ID  }}">{{.Title}}</a></td>
+                          
+                          <td class="p-l-5">{{.Amount}}</td>
+                          <td class="p-l-5">{{.AmmountCurrency}}</td>
+                          <td class="p-l-5">{{.TotalTickect}}</td>
+                          <td class="p-l-5">{{.ConsumedTicket}}</td>
+                          <td class="p-l-5">{{if (eq .IsActive true )}} Yes {{else }} No {{end}}</td>
+                          
+                        </tr>
+                        {{end}}
+
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+              <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                  <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  {{template "securePageFooter.html" .}}
+</div>
+
+
+{{template "secureFooter.html" .}}

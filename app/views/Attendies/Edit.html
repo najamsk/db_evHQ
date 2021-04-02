@@ -1,0 +1,140 @@
+{{set . "title" "Home"}}
+{{set . "navTitle" "Attendie"}}
+{{template "secureHeader.html" .}}
+
+<div class="page-content-wrapper">
+        <div class="content sm-gutter">
+            <div class="container-fluid m-t-10">
+                <div class="navigation">
+                    <div class="nav-tabs-header nav-tabs-linetriangle">
+                        <ul class="nav nav-tabs nav-tabs-simple" role="tablist" data-init-reponsive-tabs="collapse">
+                            <li><a href="{{reverseUrlUuid "Clients.Details" .attendies.ClientID}}">{{.attendies.ClientName}}</a></li>
+                            <li class=""><a href="{{reverseUrlUuid "Subscriptions.ByClientID" .attendies.ClientID}}">Subscription</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Conferences.ListByClientID" .attendies.ClientID}}">Conferences</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Sessions.List" .attendies.ConfID}}">Sessions</a>
+                            </li>
+                             <li class=""><a href="{{reverseUrlUuid "Speakers.ListByConference" .attendies.ConfID}}">Speakers</a>
+                            </li>
+                            <li class="active"><a href="{{reverseUrlUuid "Attendies.ListByConference" .attendies.ConfID}}">Attendees</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Tickets.List" .attendies.ConfID}}">Tickets</a>
+                            </li>
+                          </ul>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="container-fixed-lg">
+                        <div class="row m-t-10">
+                            <div class="col-xlg-5 col-lg-6 col-md-8 col-sm-10 col-xs-12 col-centered">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <h3 class="m-t-0 m-b-30">Attendie Information</h3>
+                                        {{ if.flash.error}}
+                                        <div class="alert alert-danger" role="alert">
+                                            <button class="close" data-dismiss="alert"></button>
+                                            <strong>{{.flash.error}}</strong>
+                                            </div>
+                                      {{end}}
+
+                                       {{ if.flash.success}}
+                                        <div class="alert alert-success" role="alert">
+                                            <button class="close" data-dismiss="alert"></button>
+                                            <strong>{{.flash.success}}</strong>
+                                            </div>
+                                            {{end}}
+                                        <hr>
+                                        <!-- valid form rendering with dropzone on browser -->
+                                        <!-- <form action="/file-upload" class="dropzone no-margin">
+                                            <div class="fallback">
+                                            <input name="file" type="file" multiple />
+                                            </div>
+                                        </form> -->
+                                        
+                                        <form class="form-horizontal timepickerForm" id="" action="{{reverseUrlUuidTwoparams "Attendies.EditPost" .attendies.ConfID .attendies.ID}}" method="POST" data-toggle="validator" role="form" >
+                                            <div class="form-group"><label for="firstname"
+                                                    class="col-sm-4 control-label">First Name</label>
+                                                <div class="col-sm-8"><input type="text"
+                                                        class="form-control" id="firstname" maxlength="20"
+                                                        required="" value="{{.attendies.FirstName}}" name="firstname" pattern="[A-Za-z]{1,32}"  data-error="Please enter name.">
+                                                        <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group"><label for="lastname"
+                                                    class="col-sm-4 control-label">Last Name</label>
+                                                <div class="col-sm-8"><input type="text"
+                                                        class="form-control" id="lastname" maxlength="20"
+                                                        required value="{{.attendies.LastName}}" name="lastname" pattern="[A-Za-z]{1,32}">
+                                                        <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group"><label for="email"
+                                                class="col-sm-4 control-label">Email</label>
+                                            <div class="col-sm-8"><input type="text"
+                                                    class="form-control" id="email"
+                                                    required value="{{.attendies.Email}}" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                                                    <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group"><label for="phonenumber"
+                                            class="col-sm-4 control-label">Phone</label>
+                                        <div class="col-sm-8"><input type="text"
+                                                class="form-control" id="phonenumber"
+                                                required value="{{.attendies.PhoneNumber}}" name="phonenumber">
+                                                <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="organization" class="col-sm-4 control-label">Organization
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="organization" required value="{{.attendies.Organization}}"
+                                                name="organization">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="designation" class="col-sm-4 control-label">Designation
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="designation" required value="{{.attendies.Designation}}"
+                                                name="designation">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group"><label for="bio"
+                                        class="col-sm-4 control-label">Bio</label>
+                                        <div class="col-sm-8">
+                                            <textarea type="text"
+                                            class="form-control" id="bio" rows="4" maxlength="300"
+                                             name="bio" required=""  data-error="Please enter details.">{{.attendies.Bio}}</textarea>
+                                             <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row text-center m-t-10"><button
+                                        class="btn btn-cons btn-rounded btn-success m-t-20"
+                                        type="submit">Update</button>
+                                    </div>
+                                    
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{template "securePageFooter.html" .}}
+    
+</div>
+<script>
+// var myDropzone = new Dropzone("div#myFileDrop", { url: "/file/post"});
+
+</script>
+
+
+
+
+{{template "secureFooter.html" .}}

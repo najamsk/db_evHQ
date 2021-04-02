@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html class=" js no-touch csstransforms3d csstransitions">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Applications</title>
+    <meta name="description"
+        content="Pushy is a reliable push notification gateway perfect for time-sensitive, mission-critical apps.">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,shrink-to-fit=no">
+        <script async="" src="./public/js/analytics.js"></script>
+        <script type="text/javascript" src="./public/js/saved_resource.js"></script>
+        <link rel="shortcut icon" href="./public/img/favicon.png">
+        <link rel="stylesheet" href="./public/css/site.css">	
+        <link rel="stylesheet" href="./public/css/responsive.css">	
+    <!-- <link rel="shortcut icon" href="https://dashboard.pushy.me/favicon.png"> -->
+    <link rel="stylesheet" href="./public/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./public/css/common.css">
+    
+</head>
+
+<body class="fixed-header dashboard menu-pin  windows desktop             pace-done">
+    <div class="pace  pace-inactive">
+        <div class="pace-progress" data-progress-text="100%" data-progress="99"
+            style="transform: translate3d(100%, 0px, 0px);">
+            <div class="pace-progress-inner"></div>
+        </div>
+        <div class="pace-activity"></div>
+    </div>
+    <div id="root" class="root-container">
+        <div data-reactroot="" class="app">
+            <!-- react-empty: 50 -->
+            <nav class="page-sidebar" data-pages="sidebar">
+                <div class="sidebar-header"><img
+                        src="./public/img/sidebar-image.png"
+                        height="50"></div>
+                <div class="sidebar-menu">
+                    <div class="scroll-wrapper menu-items" style="position: relative;">
+                        <ul class="menu-items scroll-content"
+                            style="height: 680px; margin-bottom: 0px; margin-right: 0px; max-height: none;">
+                            <li><a title="" data-toggle="tooltip" data-placement="right" data-trigger="hover"
+                                    href="./dashboard.html" data-original-title="Dashboard"><span
+                                        class="icon-thumbnail"><i class="fa fa-home"></i></span></a></li>
+                            <li><a title="" data-toggle="tooltip" data-placement="right" data-trigger="hover"
+                                    href="./app-setting.html" data-original-title="Applications"><span
+                                        class="active icon-thumbnail"><i class="fa fa-cube"></i></span></a></li>
+                            <li><a title="" data-toggle="tooltip" data-placement="right" data-trigger="hover"
+                                    href="./setting.html" data-original-title="Settings"><span
+                                        class="icon-thumbnail"><i class="fa fa-cog"></i></span></a></li>
+                        </ul>
+                        <div class="scroll-element scroll-x">
+                            <div class="scroll-element_outer">
+                                <div class="scroll-element_size"></div>
+                                <div class="scroll-element_track"></div>
+                                <div class="scroll-bar" style="width: 96px; left: 0px;"></div>
+                            </div>
+                        </div>
+                        <div class="scroll-element scroll-y">
+                            <div class="scroll-element_outer">
+                                <div class="scroll-element_size"></div>
+                                <div class="scroll-element_track"></div>
+                                <div class="scroll-bar" style="height: 96px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </nav>
+            <div class="page-container" style="background-color: rgb(245, 245, 245);">
+                <div class="header-container">
+                    <div class="header">
+                        <div class="relative">
+                            <div class="pull-left sm-table hidden-xs hidden-sm">
+                                <div class="header-inner">
+                                    <div class="title">
+                                        <h3>Applications</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pull-left full-height visible-sm visible-xs">
+                                <div class="header-inner"><a
+                                        class="btn-link cursor-pointer toggle-sidebar visible-sm-inline-block visible-xs-inline-block padding-5"
+                                        data-toggle="sidebar"><span class="icon-set menu-hambuger"></span></a></div>
+                            </div>
+                            <div class="pull-center text-center">
+                                <div class="header-inner">
+                                    <div class="brand inline"><a href="#" target="_blank"><img
+                                                src="./public/img/logo.png"
+                                                height="30"></a></div>
+                                </div>
+                            </div>
+                            <div class="pull-right full-height">
+                                <div class="m-t-5">
+                                    <div class="dropdown pull-left"><button class="profile-dropdown-toggle"
+                                            type="button" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false"><span
+                                                class="thumbnail-wrapper d32 circular inline m-t-5"><img
+                                                    src="./public/img/profile-image.png"
+                                                    width="32" height="32"></span>
+                                            <div class="pull-left visible-md visible-lg p-r-10 p-l-10 p-t-10"><span
+                                                    class="fs-14 font-heading semi-bold">Vheelz</span><i
+                                                    class="dropdown-arrow fa fa-angle-down"></i></div>
+                                        </button>
+                                        <ul class="dropdown-menu profile-dropdown" role="menu">
+                                            <li><a href="./documentation.html" target="_blank"><i
+                                                        class="fa fa-book"></i><!-- react-text: 138 --> Docs
+                                                    <!-- /react-text --></a></li>
+                                            <li><a href="./support.html" target="_blank"><i
+                                                        class="fa fa-question-circle"></i><!-- react-text: 142 -->
+                                                    Support
+                                                    <!-- /react-text --></a></li>
+                                            <li><a href="./setting.html"><i
+                                                        class="fa fa-cog"></i><!-- react-text: 146 --> Settings
+                                                    <!-- /react-text --></a></li>
+                                            <li><a class="cursor-pointer"><i class="fa fa-comment"></i>
+                                                    <!-- react-text: 150 --> Feedback
+                                                    <!-- /react-text --></a></li>
+                                            <!-- <li><a href="./contact.html" target="_blank"><i
+                                                        class="fa fa-envelope"></i><!-- react-text: 154 --> Contact Us
+                                                    <!-- /react-text --></a>
+                                                <!-- </li> -->
+                                            <li class="bg-master-lightest"><a class="cursor-pointer clearfix"><i
+                                                        class="fa fa-sign-out"></i><!-- react-text: 158 --> Logout
+                                                    <!-- /react-text --></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade slide-up disable-scroll" id="feedback-modal" tabindex="-1" role="dialog"
+                        aria-labelledby="modalSlideUpLabel" aria-hidden="false">
+                        <div class="modal-dialog">
+                            <div class="modal-content-wrapper">
+                                <div class="modal-content">
+                                    <div class="modal-header clearfix text-left"><button type="button" class="close"
+                                            data-dismiss="modal" aria-hidden="true"><i
+                                                class="fa fa-close"></i></button>
+                                        <h5 class="m-t-0"><span class="semi-bold">Send Feedback</span></h5>
+                                        <p>We'd love to hear what you think about our service and how we can improve it!
+                                        </p>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="form-group"><label>Tell us what you
+                                                            think</label><textarea rows="10" class="form-control"
+                                                            required=""></textarea></div>
+                                                </div>
+                                            </div>
+                                            <div class="row m-t-20 text-center"><button type="submit"
+                                                    class="btn btn-success btn-cons">Submit</button></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content-wrapper">
+                    <div class="content sm-gutter">
+                        <div class="container-fluid m-t-25">
+                            <div class="row">
+                                <div class="col-xlg-2 col-lg-4 col-sm-6 m-b-10 cursor-pointer">
+                                    <div class="panel no-border no-margin">
+                                        <div class="container-xs-height full-height">
+                                            <div class="row-xs-height">
+                                                <div class="col-xs-height col-top">
+                                                    <div class="panel-heading  top-left top-right">
+                                                        <div class="panel-title text-black"><span
+                                                                class="font-montserrat fs-11 all-caps">
+                                                                <!-- react-text: 594 -->ios
+                                                                <!-- /react-text -->
+                                                                <!-- react-text: 595 -->
+                                                                <!-- /react-text --><i
+                                                                    class="fa fa-chevron-right"></i></span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row-xs-height">
+                                                <div class="col-xs-height col-top">
+                                                    <div class="p-l-20 p-t-60 p-b-40 p-r-20">
+                                                        <h4 class="no-margin p-b-5 overflow-ellipsis">
+                                                            <!-- react-text: 601 -->Vheelz
+                                                            <!-- /react-text -->
+                                                        </h4>
+                                                        <div class="normal-text hint-text overflow-ellipsis">
+                                                            <span>com.moftaksolutions.vheelzi</span></div>
+                                                        <hr><span
+                                                            class="small hint-text pull-left overflow-ellipsis"><span
+                                                                class="bold">10</span><!-- react-text: 607 --> active /
+                                                            <!-- /react-text --><span class="bold">1,315</span>
+                                                            <!-- react-text: 609 --> total devices
+                                                            <!-- /react-text --></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row-xs-height">
+                                                <div class="col-xs-height col-bottom">
+                                                    <div class="progress progress-small m-b-0">
+                                                        <div class="progress-bar device-quota-bar progress-bar-danger"
+                                                            data-progress="10" data-total="1315"
+                                                            style="width: 0.760456%;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xlg-2 col-lg-4 col-sm-6 m-b-10 cursor-pointer">
+                                    <div class="panel no-border no-margin">
+                                        <div class="container-xs-height full-height">
+                                            <div class="row-xs-height">
+                                                <div class="col-xs-height col-top">
+                                                    <div class="panel-heading  top-left top-right">
+                                                        <div class="panel-title text-black"><span
+                                                                class="font-montserrat fs-11 all-caps">
+                                                                <!-- react-text: 622 -->ios
+                                                                <!-- /react-text -->
+                                                                <!-- react-text: 623 -->
+                                                                <!-- /react-text --><i
+                                                                    class="fa fa-chevron-right"></i></span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row-xs-height">
+                                                <div class="col-xs-height col-top">
+                                                    <div class="p-l-20 p-t-60 p-b-40 p-r-20">
+                                                        <h4 class="no-margin p-b-5 overflow-ellipsis">
+                                                            <!-- react-text: 629 -->Vheelz Driver
+                                                            <!-- /react-text -->
+                                                        </h4>
+                                                        <div class="normal-text hint-text overflow-ellipsis">
+                                                            <span>com.moftaksolutions.vheelzidriver</span></div>
+                                                        <hr><span
+                                                            class="small hint-text pull-left overflow-ellipsis"><span
+                                                                class="bold">0</span><!-- react-text: 635 --> active /
+                                                            <!-- /react-text --><span class="bold">149</span>
+                                                            <!-- react-text: 637 --> total devices
+                                                            <!-- /react-text --></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row-xs-height">
+                                                <div class="col-xs-height col-bottom">
+                                                    <div class="progress progress-small m-b-0">
+                                                        <div class="progress-bar device-quota-bar progress-bar-danger"
+                                                            data-progress="0" data-total="149" style="width: 0%;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xlg-2 col-lg-4 col-sm-6 m-b-10 cursor-pointer" data-toggle="modal"
+                                    data-target="#create-app-modal">
+                                    <div class="panel no-border no-margin">
+                                        <div class="container-xs-height full-height">
+                                            <div class="new-app-container">
+                                                <div class="new-app">
+                                                    <h1 class="text-danger"><i class="fa fa-cube"></i></h1>
+                                                    <h4 class="m-t-10">Create New App</h4>
+                                                </div>
+                                            </div>
+                                            <div class="row-xs-height">
+                                                <div class="col-xs-height col-bottom">
+                                                    <div class="progress progress-small m-b-0">
+                                                        <div class="progress-bar device-quota-bar progress-bar-danger"
+                                                            data-progress="0" data-total="100" style="width: 0%;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade slide-up disable-scroll" id="create-app-modal" tabindex="-1"
+                                role="dialog" aria-labelledby="modalSlideUpLabel" aria-hidden="false">
+                                <div class="modal-dialog">
+                                    <div class="modal-content-wrapper">
+                                        <div class="modal-content">
+                                            <div class="modal-header clearfix text-left"><button type="button"
+                                                    class="close" data-dismiss="modal" aria-hidden="true"><i
+                                                        class="fa fa-close"></i></button>
+                                                <h5 class="m-t-0"><span class="semi-bold">Create App</span></h5>
+                                                <p>Get started by naming your app and configuring at least one platform
+                                                </p>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group form-group-default required">
+                                                                <label>App Name</label><input type="text"
+                                                                    class="form-control" maxlength="50" required="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <h5 class="m-t-15 m-b-15"><span class="semi-bold">Platforms</span>
+                                                    </h5>
+                                                    <div class="row">
+                                                        <div class="col-sm-6 m-b-10">
+                                                            <div class="input-group"><span class="input-group-addon"><i
+                                                                        class="fa fa-android"></i></span><input
+                                                                    type="text"
+                                                                    placeholder="Android Package Name (optional)"
+                                                                    maxlength="100" class="form-control"></div>
+                                                        </div>
+                                                        <div class="col-sm-6 m-b-10">
+                                                            <div class="input-group"><span class="input-group-addon"><i
+                                                                        class="fa fa-apple"></i></span><input
+                                                                    type="text" placeholder="iOS Bundle ID (optional)"
+                                                                    maxlength="100" class="form-control"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-12 m-b-10">
+                                                            <div class="input-group"><span class="input-group-addon"><i
+                                                                        class="fa fa-globe"></i></span><input
+                                                                    type="text"
+                                                                    placeholder="Web Push Hostname (optional)"
+                                                                    maxlength="100" class="form-control">
+                                                                <div class="input-tooltip" title=""
+                                                                    data-toggle="tooltip" data-placement="left"
+                                                                    data-trigger="hover"
+                                                                    data-original-title="Send notifications to your website visitors by entering your hostname (www.example.com)">
+                                                                    <i class="fa fa-question-circle hint-text"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row m-t-40 text-center"><button type="submit"
+                                                            class="btn btn-danger btn-cons">Create</button></div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid footer">
+                        <div class="copyright sm-text-center">
+                            <p class="small no-margin pull-left sm-pull-reset"><span class="hint-text">
+                                    <!-- react-text: 113 -->Copyright ©
+                                    <!-- /react-text -->
+                                    <!-- react-text: 114 -->2019
+                                    <!-- /react-text --></span><!-- react-text: 115 -->
+                                <!-- /react-text --><span class="font-montserrat">Pushy LLC</span>
+                                <!-- react-text: 117 -->.
+                                <!-- /react-text --><a href="#" target="_blank">Terms
+                                    &amp; Privacy</a></p>
+                            <p class="small no-margin pull-right sm-pull-reset"><span class="hint-text">Need
+                                    help?</span><!-- react-text: 121 -->
+                                <!-- /react-text --><a href="./contact.html" target="_blank">Contact us</a>
+                                <!-- react-text: 123 -->,
+                                <!-- /react-text --><span class="hint-text">we'd be glad to help!</span></p>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="./public/js/bundle.js"></script>
+    <iframe frameborder="0"
+        allowtransparency="true" scrolling="no" name="__privateStripeMetricsController0" allowpaymentrequest="true"
+        src="./Applications_files/outer.html" aria-hidden="true" tabindex="-1"
+        style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe>
+    <div
+        style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+        <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+        </div>
+    </div>
+    <div id="pg-visible-sm" class="visible-sm"></div>
+    <div id="pg-visible-xs" class="visible-xs"></div>
+    <iframe frameborder="0" allowtransparency="true" scrolling="no"
+        name="__privateStripeController1" allowpaymentrequest="true"
+        src="./Applications_files/controller-f8c77612f7b1b0bc0ad59207aa8ee36e.html" aria-hidden="true" tabindex="-1"
+        style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe>
+    <div class="pg-colors">
+        <div class="bg-danger" data-color="danger"></div>
+        <div class="bg-master-light" data-color="master-light"></div>
+        <div class="bg-success" data-color="success"></div>
+        <div class="bg-primary" data-color="primary"></div>
+        <div class="bg-complete" data-color="complete"></div>
+    </div>
+</body>
+
+</html>

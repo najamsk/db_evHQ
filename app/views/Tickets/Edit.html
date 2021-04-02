@@ -1,0 +1,175 @@
+{{set . "title" "Home"}}
+{{set . "navTitle" "Tickets"}}
+{{template "secureHeader.html" .}}
+
+<div class="page-content-wrapper">
+        <div class="content sm-gutter">
+            <div class="container-fluid m-t-10">
+                <div class="navigation">
+                    <div class="nav-tabs-header nav-tabs-linetriangle">
+                        <ul class="nav nav-tabs nav-tabs-simple" role="tablist" data-init-reponsive-tabs="collapse">
+                            <li><a href="{{reverseUrlUuid "Clients.Details" .vm.ClientID}}">{{.vm.ClientName}}</a></li>
+                            <li class=""><a href="{{reverseUrlUuid "Subscriptions.ByClientID" .vm.ClientID}}">Subscription</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Conferences.ListByClientID" .vm.ClientID}}">Conferences</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Sponsors.ListByConference" .vm.ConfID}}">Sponsors</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Sessions.List" .vm.ConfID}}">Sessions</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Speakers.ListByConference" .vm.ConfID}}">Speakers</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Attendies.ListByConference" .vm.ConfID}}">Attendees</a>
+                            </li>
+                            <li class="active"><a href="{{reverseUrlUuid "Tickets.List" .vm.ConfID}}">Tickets</a>
+                            </li>
+                          
+                          </ul>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="container-fixed-lg">
+                        <div class="row m-t-10">
+                            <div class="col-xlg-5 col-lg-6 col-md-8 col-sm-10 col-xs-12  col-centered">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <h3 class="m-t-0 m-b-30">Tickets Information</h3>
+                                        {{ if.flash.error}}
+                                        <div class="alert alert-danger" role="alert">
+                                            <button class="close" data-dismiss="alert"></button>
+                                            <strong>{{.flash.error}}</strong>
+                                            </div>
+                                      {{end}}
+
+                                       {{ if.flash.success}}
+                                        <div class="alert alert-success" role="alert">
+                                            <button class="close" data-dismiss="alert"></button>
+                                            <strong>{{.flash.success}}</strong>
+                                            </div>
+                                            {{end}}
+                                        <hr>
+                                        <!-- valid form rendering with dropzone on browser -->
+                                        <!-- <form action="/file-upload" class="dropzone no-margin">
+                                            <div class="fallback">
+                                            <input name="file" type="file" multiple />
+                                            </div>
+                                        </form> -->
+                                        
+                                        <form class="form-horizontal timepickerForm" id="" action="{{reverseUrlUuidTwoparams "Tickets.EditPost" .vm.ConfID .vm.ID}}"  method="POST" data-toggle="validator" role="form" >
+                                            <!-- <div class="form-group"><label
+                                                    class="col-sm-4 control-label m-t-5">Account
+                                                    Type</label>
+                                                <div class="col-sm-8">
+                                                    <p class="m-t-15 hint-text small"><span
+                                                            class="label font-montserrat fs-11 text-uppercase">pro</span><a
+                                                            href="https://pushy.me/pricing"
+                                                            class="color-inherit m-l-5" target="_blank"><i
+                                                                class="fa fa-question-circle hint-text"></i></a>
+                                                    </p>
+                                                    <p class="m-t-15 hint-text small"><span>
+                                                            Update your card
+                                                            details in the
+                                                            <a
+                                                                href="https://dashboard.pushy.me/settings/billing">billing
+                                                                page</a>.
+                                                            </span></p>
+                                                </div>
+                                            </div> -->
+                                            <div class="form-group"><label for="name"
+                                                class="col-sm-4 control-label">Serial Number</label>
+                                            <div class="col-sm-8"><input type="text"
+                                                    class="form-control" value="{{.vm.Title}}" id="name" maxlength="50" readonly>
+                                            </div>
+                                        </div>
+                                          
+                                            <div  class="form-group "><label for="tickettype"
+                                                class="col-sm-4 control-label ">Ticket Type</label>
+                                            <div class="col-sm-8 ">
+                                                    
+                                                    <select name="tickettype">
+                                                            {{$ticketid:= converttostring .vm.TicketTypeID}}
+                                                            {{range .vm.TicketTypes}}
+                                                            {{$id:= converttostring .ID}}
+                                                            {{if(eq $id $ticketid)}}
+                                                            {{if (eq .IsActive false)}}
+                                                            <option value="{{.ID}}" {{ if(eq $id $ticketid)}} selected {{end}}>
+                                                                    {{.Title}}-{{.Amount}}-{{.AmmountCurrency}}
+                                                            </option>
+                                                            {{end}}
+                                                            {{end}}
+                                                                {{if (eq .IsActive true)}}
+                                                                <option value="{{.ID}}" {{ if(eq $id $ticketid)}} selected {{end}}>
+                                                                {{.Title}}-{{.Amount}}-{{.AmmountCurrency}}
+                                                            </option>
+                                                                {{end}}
+                                                          
+                                                            
+                                                            {{end}}
+                                                    </select>
+                                            </div>
+                                        </div>
+                                            <div class="form-group"><label for="startdate"
+                                                class="col-sm-4 control-label">Valid From</label>
+                                            <div class="col-sm-8"><input type="text"
+                                                    value="{{.vm.StartDate}}"class="form-control datetimepicker" id="startDate" name="startDate" maxlength="50"  data-error="Please enter start date.">
+                                                    <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group"><label for="email"
+                                                class="col-sm-4 control-label ">Valid To</label>
+                                            <div class="col-sm-8"><input type="text"
+                                                    class="form-control datetimepicker" id="" maxlength="50"
+                                                    value="{{.vm.EndDate}}"required="" name="endDate"  data-error="Please enter end date.">
+                                                    <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                          
+
+                                            <div class="form-group">
+                                                <label for="isActive"
+                                                    class="col-sm-4 control-label">Active ?</label>
+                                                <div class="col-sm-8">
+                                                    <input type="checkbox"
+                                                    class="" id="isActive" name="IsActive" 
+                                                    {{if (eq .vm.IsActive true)}}
+                                                    checked 
+                                                    {{end}}
+                                                    />
+                                                        
+                                                </div>
+                                            </div>
+                                            
+
+                                            
+                                            <br>
+                                            <div class="row text-center m-t-10">
+                                                    <a href="{{reverseUrlUuid "TicketsType.List" .vm.ConfID}}"
+                                                    class="btn btn-cons btn-rounded btn-primary m-t-20"
+                                                    >Mange TicketTypes</a>
+                                                <button
+                                                    class="btn btn-cons btn-rounded btn-success m-t-20"
+                                                    type="submit">Update</button>
+                                                </div>
+                                                <div class="row  m-t-10">
+                                                        
+                                                  
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{template "securePageFooter.html" .}}
+    
+</div>
+<script>
+</script>
+
+
+
+
+{{template "secureFooter.html" .}}

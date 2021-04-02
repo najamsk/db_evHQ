@@ -1,0 +1,127 @@
+{{set . "title" "Home"}}
+{{set . "navTitle" "Tickets - list"}}
+{{template "secureHeader.html" .}}
+<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"> -->
+<div class="page-content-wrapper">
+  <div class="content sm-gutter">
+    <!-- react-empty: 697 -->
+    <div class="container-fluid m-t-10">
+      <div class="navigation">
+        <div class="nav-tabs-header nav-tabs-linetriangle">
+        
+            <ul class="nav nav-tabs nav-tabs-simple" role="tablist" data-init-reponsive-tabs="collapse">
+            <li><a href="{{reverseUrlUuid "Clients.Details" .vm.ClientID}}">{{.vm.ClientName}}</a></li>
+            <li class=""><a href="{{reverseUrlUuid "Subscriptions.ByClientID" .vm.ClientID}}">Subscription</a>
+            </li>
+            <li class=""><a href="{{reverseUrlUuid "Conferences.ListByClientID" .vm.ClientID}}">Conferences</a>
+            </li>
+            <li class=""><a href="{{reverseUrlUuid "Sponsors.ListByConference" .vm.ConfID}}">Sponsors</a>
+            </li>
+            <li class=""><a href="{{reverseUrlUuid "Sessions.List" .vm.ConfID}}">Sessions</a>
+            </li>
+            <li class=""><a href="{{reverseUrlUuid "Speakers.ListByConference" .vm.ConfID}}">Speakers</a>
+            </li>
+            <li class=""><a href="{{reverseUrlUuid "Attendies.ListByConference" .vm.ConfID}}">Attendees</a>
+            </li>
+            <li class="active"><a href="{{reverseUrlUuid "Tickets.List" .vm.ConfID}}">Tickets</a>
+            </li>
+            
+          
+          </ul>
+        </div>
+      </div>
+      <div class="tab-content">
+
+        <!-- start of table panel -->
+        <div class="container-fluid bg-white">
+
+          <div class="panel panel-transparent">
+
+            <div class="panel-body p-t-25 p-l-15 p-r-15">
+              <!-- toolbar started for table -->
+              <div class="btn-toolbar flex-wrap" role="toolbar">
+                <div class="btn-group sm-m-t-10">
+                    <a href="{{reverseUrlUuid "Tickets.Create" .vm.ConfID}}" class="btn btn-default" title="Add Tickets">
+                    <i class="fa fa-plus"></i>
+                    </a>
+                </div>
+                  <div class="btn-group sm-m-t-10">
+                    <a href="{{reverseUrlUuid "TicketsType.List" .vm.ConfID}}"
+                    class="btn btn-default" style="height: 42px;"
+                    >Mange TicketTypes</a>
+                    
+                  </div>
+                {{ if.flash.error}}
+                <div class="alert alert-danger" style="width: 75%;text-align: center;margin-left: 226px;" role="alert">
+                    <button class="close" data-dismiss="alert"></button>
+                    <strong>{{.flash.error}}</strong>
+                    </div>
+              {{end}}
+
+               {{ if.flash.success}}
+                <div class="alert alert-success" style="width: 75%;text-align: center;margin-left: 226px;" role="alert">
+                    <button class="close" data-dismiss="alert"></button>
+                    <strong>{{.flash.success}}</strong>
+                    </div>
+                    {{end}}
+                
+              </div> <!-- btn-toolbar ends -->
+              
+
+              <div class="dataTables_wrapper form-inline no-footer">
+                <div class="table-responsive">
+                  <table class="table table-striped dataTable no-footer" role="grid">
+                    <thead>
+                      <tr role="row">
+                        <th>Serial No</th>
+                        <th>Valid From</th>
+                        <th>Valid To</th>
+                        <th>IsConsumed</th>
+                        <th>IsActive</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        
+                      {{$confiD:=.vm.ConfID}}
+                        {{range .vm.Tickets}}
+                        <tr>
+                          <td><a href="{{reverseUrlUuidTwoparams "Tickets.Edit" $confiD .ID  }}">{{.SerialNo}}</a></td>
+                          
+                          <td class="p-l-5">{{TimeZoneConfig .ValidFrom}}</td>
+                          <td class="p-l-5">{{TimeZoneConfig .ValidTo}}</td>
+                          <td class="p-l-5">{{if (eq .IsConsumed true )}} Yes {{else }} No {{end}}</td>
+                          <td class="p-l-5">{{if (eq .IsActive true )}} Yes {{else }} No {{end}}</td>
+                        </tr>
+                        {{end}}
+
+
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+              <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                  <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  {{template "securePageFooter.html" .}}
+</div>
+
+
+{{template "secureFooter.html" .}}

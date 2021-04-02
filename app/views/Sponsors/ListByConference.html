@@ -1,0 +1,130 @@
+{{set . "title" "Home"}}
+{{set . "navTitle" "Speaker - list"}}
+{{template "secureHeader.html" .}}
+<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"> -->
+<div class="page-content-wrapper">
+  <div class="content sm-gutter">
+    <!-- react-empty: 697 -->
+    <div class="container-fluid m-t-10">
+      <div class="navigation">
+        <div class="nav-tabs-header nav-tabs-linetriangle">
+          <ul class="nav nav-tabs nav-tabs-simple" role="tablist" data-init-reponsive-tabs="collapse">
+            <li><a href="{{reverseUrlUuid "Clients.Details" .sponsorVM.ClientID}}">{{.sponsorVM.ClientName}}</a></li>
+            <li class=""><a href="{{reverseUrlUuid "Subscriptions.ByClientID" .sponsorVM.ClientID}}">Subscription</a>
+            </li>
+            <li class=""><a href="{{reverseUrlUuid "Conferences.ListByClientID" .sponsorVM.ClientID}}">Conferences</a>
+            </li>
+            <li class="active"><a href="{{reverseUrlUuid "Sponsors.ListByConference" .sponsorVM.ConferenceID}}">Sponsors</a>
+            </li>
+            <li class=""><a href="{{reverseUrlUuid "Sessions.List" .sponsorVM.ConferenceID}}">Sessions</a>
+
+            </li>
+            <li class=""><a href="{{reverseUrlUuid "Speakers.ListByConference" .sponsorVM.ConferenceID}}">Speakers</a>
+            </li>
+            <li class=""><a href="{{reverseUrlUuid "Attendies.ListByConference" .sponsorVM.ConferenceID}}">Attendees</a>
+            </li>
+            <li class=""><a href="{{reverseUrlUuid "Tickets.List" .sponsorVM.ConferenceID}}">Tickets</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="tab-content">
+
+        
+
+        <!-- start of table panel -->
+        <div class="container-fluid bg-white">
+
+          <div class="panel panel-transparent">
+            <div class="panel-body p-t-25 p-l-15 p-r-15">
+            
+
+              <!-- toolbar started for table -->
+              <div class="btn-toolbar flex-wrap" role="toolbar">
+                <div class="btn-group sm-m-t-10">
+                  <a href="{{reverseUrlUuid "Sponsors.Create" .sponsorVM.ConferenceID}}" class="btn btn-default">
+                    <i class="fa fa-plus"></i>
+                    </a>
+                  
+                  <!-- <a class="btn btn-default" data-toggle="modal" data-target="#searchClientModal" title="Search" style="margin-left: 5px"><i class="fa fa-search"></i>
+                  </a> -->
+                  
+                </div>
+                
+              </div> <!-- btn-toolbar ends -->
+              
+
+              <div class="dataTables_wrapper form-inline no-footer">
+                <div class="table-responsive">
+                  <table class="table table-striped dataTable no-footer" role="grid">
+                    <thead>
+                      <tr role="row">
+                        <th>Name</th>
+                        <th>Level</th>
+                        <th>SortOrder</th>
+                        <th>ACTIVE ?</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        
+                        {{$sessionid:=.sponsorVM.SessionID}}
+                        {{$confid:=.sponsorVM.ConferenceID}}
+                        {{range .sponsorVM.Sponsors}}
+                        <tr>
+                          <td><a   href="{{reverseUrlUuidTwoparams "Sponsors.Detail" $confid .ID}}">{{.Name}}</a></td>
+                          <td class="p-l-3">{{.Type}}</a></td>
+                          <td class="p-l-3">{{.SortOrder}}</td>
+                          <td class="p-l-5">{{if (eq .IsActive true )}} Yes {{else }} No {{end}}</td>
+                        {{end}}
+                      <!-- <tr class="gradeA odd" role="row">
+                        <td><a href="#">Vheelz</a></td>
+                        <td class="p-l-5">info@vheelz.com</td>
+                        <td class="p-l-5">Pakistan</td>
+                        <td class="p-l-5">21 Nov, 2015</td>
+                        <td class="p-l-5">Active</td>
+                        <td><i class="fa fa-trash cursor-pointer text-danger padding-5"></i></td>
+                      </tr>
+                      <tr class="gradeA odd" role="row">
+                        <td><a href="#">JumahPay</a></td>
+                        <td class="p-l-5">info@jumahpay.com</td>
+                        <td class="p-l-5">Uk</td>
+                        <td class="p-l-5">21 Nov, 2017</td>
+                        <td class="p-l-5">Suspended</td>
+                        <td><i class="fa fa-file cursor-pointer text-danger padding-5"></i></td>
+
+                      </tr> -->
+
+
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+              <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                  <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  {{template "securePageFooter.html" .}}
+</div>
+
+
+
+
+
+{{template "secureFooter.html" .}}

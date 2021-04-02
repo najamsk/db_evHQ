@@ -1,0 +1,129 @@
+{{set . "title" "Clients"}}
+{{set . "navTitle" "Clients"}}
+{{template "secureHeader.html" .}}
+
+<div class="page-content-wrapper">
+        <div class="content sm-gutter">
+            <div class="container-fluid m-t-10">
+                <div class="navigation">
+                    <div class="nav-tabs-header nav-tabs-linetriangle">
+                        <ul class="nav nav-tabs nav-tabs-simple" role="tablist" data-init-reponsive-tabs="collapse">
+                            <li class="active"><a href="">{{.clientDB.Name}}</a></li>
+                            <li class=""><a href="{{reverseUrlUuid "Subscriptions.ByClientID" .clientDB.ID}}">Subscription</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Conferences.ListByClientID" .clientDB.ID}}">Conferences</a>
+                            </li>
+                            <!-- <li class=""><a>Sessions</a>
+                            </li> -->
+                            <!-- <li class=""><a>Users</a>
+                            </li>
+                            <li class=""><a>Speakers</a>
+                            </li>
+                            <li class=""><a>Attendees</a>
+                            </li>
+                            <li class=""><a>Tickets</a>
+                            </li> -->
+                          </ul>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="container-fixed-lg">
+                        <div class="row m-t-10">
+                            <div class="col-xlg-5 col-lg-6 col-md-8 col-sm-10 col-xs-12 col-centered">
+                                <div class="panel panel-default">
+                                    <div class="panel-body ">
+                                        <h3 class="m-t-0 m-b-30">{{.clientDB.Name}}</h3>
+                                        {{ if.flash.success}}
+                                        <div class="alert alert-success" role="alert">
+                                            <button class="close" data-dismiss="alert"></button>
+                                            <strong>{{.flash.success}}</strong>
+                                            </div>
+                                            {{end}}
+                                        <hr>
+                                        <!-- valid form rendering with dropzone on browser -->
+                                        <!-- <form action="/file-upload" class="dropzone no-margin">
+                                            <div class="fallback">
+                                            <input name="file" type="file" multiple />
+                                            </div>
+                                        </form> -->
+                                        
+                                        <form class="form-horizontal" id="" action="{{reverseUrlUuid "Clients.UpdateClient" .clientDB.ID}}" method="POST">
+                                            <!-- <div class="form-group"><label
+                                                    class="col-sm-4 control-label m-t-5">Account
+                                                    Type</label>
+                                                <div class="col-sm-8">
+                                                    <p class="m-t-15 hint-text small"><span
+                                                            class="label font-montserrat fs-11 text-uppercase">pro</span><a
+                                                            href="https://pushy.me/pricing"
+                                                            class="color-inherit m-l-5" target="_blank"><i
+                                                                class="fa fa-question-circle hint-text"></i></a>
+                                                    </p>
+                                                    <p class="m-t-15 hint-text small"><span>
+                                                            Update your card
+                                                            details in the
+                                                            <a
+                                                                href="https://dashboard.pushy.me/settings/billing">billing
+                                                                page</a>.
+                                                            </span></p>
+                                                </div>
+                                            </div> -->
+                                            
+                                            <div class="form-group"><label for="name"
+                                                    class="col-sm-4 control-label">Name</label>
+                                                <div class="col-sm-8"><input type="text"
+                                                        class="form-control" id="name" name="name" maxlength="50"
+                                                        required="" value="{{.clientDB.Name}}"></div>
+                                            </div>
+                                            <div class="form-group"><label for="name"
+                                                class="col-sm-4 control-label">Created On</label>
+                                                <div class="col-sm-8">
+                                                        {{TimeZoneConfig .clientDB.CreatedAt}}
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="isActive"
+                                                    class="col-sm-4 control-label">Active ?</label>
+                                                <div class="col-sm-8">
+                                                    <input type="checkbox"
+                                                        class="" id="isActive" name="isActive" data-selected={{.clientDB.IsActive}} 
+                                                        {{if (eq .clientDB.IsActive true)}}
+                                                        checked 
+                                                        {{end}}
+                                                        />
+                                                </div>
+                                            </div>                                          
+                                            
+
+                                            <br>
+                                            <div class="row text-center m-t-10">
+                                                <button
+                                                    class="btn btn-cons btn-rounded btn-success m-t-20"
+                                                    type="submit">Update</button>
+                                                    
+                                            </div>
+                                            <div class="row  m-t-10">
+                                                    <a href="{{url "Clients.Index"}}"
+                                                    class="btn btn-primary btn-sm  btn-rounded m-r-20"
+                                                    >Clients List</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{template "securePageFooter.html" .}}
+    
+</div>
+<script>
+// var myDropzone = new Dropzone("div#myFileDrop", { url: "/file/post"});
+
+</script>
+
+
+
+
+{{template "secureFooter.html" .}}

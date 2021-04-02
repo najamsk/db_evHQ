@@ -1,0 +1,289 @@
+{{set . "title" "Home"}}
+{{set . "navTitle" "Speaker"}}
+{{template "secureHeader.html" .}}
+
+<div class="page-content-wrapper">
+        <div class="content sm-gutter">
+            <div class="container-fluid m-t-10">
+                <div class="navigation">
+                    <div class="nav-tabs-header nav-tabs-linetriangle">
+                        <ul class="nav nav-tabs nav-tabs-simple" role="tablist" data-init-reponsive-tabs="collapse">
+                            <li><a href="{{reverseUrlUuid "Clients.Details" .vm.ClientID}}">{{.vm.ClientName}}</a></li>
+                            <li class=""><a href="{{reverseUrlUuid "Subscriptions.ByClientID" .vm.ClientID}}">Subscription</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Conferences.ListByClientID" .vm.ClientID}}">Conferences</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Sponsors.ListByConference" .vm.ConfID}}">Sponsors</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Sessions.List" .vm.ConfID}}">Sessions</a>
+                            </li>
+                            <li class="active"><a href="{{reverseUrlUuidTwoparams "Speakers.ListBySession" .vm.ConfID .vm.SessionID}}">Speakers</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Attendies.ListByConference" .vm.ConfID}}">Attendees</a>
+                            </li>
+                            <li class=""><a href="{{reverseUrlUuid "Tickets.List" .vm.ConfID}}">Tickets</a>
+                            </li>
+                          </ul>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="container-fixed-lg">
+                        <div class="row m-t-10">
+                            <div class="col-xlg-5 col-lg-6 col-md-8 col-sm-10 col-xs-12 col-centered">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <h3 class="m-t-0 m-b-30">Speaker Information</h3>
+                                        {{ if.flash.error}}
+                                        <div class="alert alert-danger" role="alert">
+                                            <button class="close" data-dismiss="alert"></button>
+                                            <strong>{{.flash.error}}</strong>
+                                            </div>
+                                      {{end}}
+
+                                       {{ if.flash.success}}
+                                        <div class="alert alert-success" role="alert">
+                                            <button class="close" data-dismiss="alert"></button>
+                                            <strong>{{.flash.success}}</strong>
+                                            </div>
+                                            {{end}}
+                                        <hr>
+                                        <!-- valid form rendering with dropzone on browser -->
+                                        <!-- <form action="/file-upload" class="dropzone no-margin">
+                                            <div class="fallback">
+                                            <input name="file" type="file" multiple />
+                                            </div>
+                                        </form> -->
+                                        <div id="searchform">
+                                        <form class="form-horizontal timepickerForm" id="speakerform" >
+
+                                            <div class="form-group"><label for="email"
+                                                class="col-sm-4 control-label">Email</label>
+                                            <div class="col-sm-8"><input type="text"
+                                                    class="form-control" id="speakeremail" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                                                    <div class="help-block with-errors"></div>
+                                                    <input type="hidden" name="sessionid" 
+                                                    class="form-control" id="sessionid" value="{{.vm.SessionID}}">
+                                                    <input type="hidden" name="confid" 
+                                                    class="form-control" id="confereceiD" value="{{.vm.ConfID}}">
+                                            </div>
+                                        </div>
+                                        <div class="row text-center m-t-10"><button
+                                            class="btn btn-cons btn-rounded btn-success m-t-20"
+                                            type="submit">Search</button></div>
+                                    
+                                        </form>
+                                        </div>
+                                        <div id="addspeaker" style="display:none">
+
+                                            <form class="form-horizontal timepickerForm" id="" action="{{reverseUrlUuidTwoparams "Speakers.AddSessionspeaker" .vm.ConfID .vm.SessionID}}" method="POST" data-toggle="validator" role="form" enctype="multipart/form-data" >
+                                                
+                                                <div class="form-group"><label for="firstname"
+                                                        class="col-sm-4 control-label">First Name</label>
+                                                    <div class="col-sm-8"><input type="text"
+                                                        required class="form-control" id="firstname" 
+                                                            name="FirstName"  data-error="Please enter name.">
+                                                            <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group"><label for="lastname"
+                                                        class="col-sm-4 control-label">Last Name</label>
+                                                    <div class="col-sm-8"><input type="text"
+                                                        required class="form-control" id="lastname"
+                                                            name="LastName" data-error="Please enter lastname.">
+                                                            <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group"><label for="email"
+                                                    class="col-sm-4 control-label">Email</label>
+                                                <div class="col-sm-8"><input type="text"
+                                                    required  class="form-control" id="mail"
+                                                         name="Email" data-error="Please enter email.">
+                                                        <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group"><label for="phonenumber"
+                                                class="col-sm-4 control-label">Phone</label>
+                                            <div class="col-sm-8"><input type="text"
+                                                required class="form-control" id="phone" name="PhoneNumber" data-error="Please enter phonenumber.">
+                                                    <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="organization" class="col-sm-4 control-label">Organization
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="org" 
+                                                required name="Organization" data-error="Please enter organization.">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="designation" class="col-sm-4 control-label">Designation
+                                            </label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="designation"
+                                                required name="Designation" data-error="Please enter designation.">
+                                                    <input type="hidden" class="form-control" id="userid"
+                                                    name="userid"> 
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group"><label for="poster"
+                                            class="col-sm-4 control-label">Poster</label>
+                                            <div class="col-sm-8 fallback">
+                                                    <input name="poster" type="file" />
+                                                    <div class="help-block with-errors"></div>
+                                            </div>
+                                            <div class="col-sm-12 text-center ontrol-label">
+                                                <label>(Image size {{.postersize}}mb, {{.imageheight}}x{{.imagewidth}})</label>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="form-group"><label for="profile"
+                                            class="col-sm-4 control-label">Profile</label>
+                                            <div class="col-sm-8 fallback">
+                                                    <input name="profile" type="file" />
+                                                    <div class="help-block with-errors"></div>
+                                            </div>
+                                            <div class="col-sm-12 text-center ontrol-label">
+                                                <label>(Image size {{.profilesize}}mb, {{.imageheight}}x{{.imagewidth}})</label>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="form-group">
+                                                <label for="facebook" class="col-sm-4 control-label">Facebook
+                                                </label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="facebook" 
+                                                     name="facebook">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                    <label for="twitter" class="col-sm-4 control-label">Twitter
+                                                    </label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control" id="twitter"
+                                                            name="twitter">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label for="linkedin" class="col-sm-4 control-label">Linkedin
+                                                        </label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="linkedin"
+                                                                name="linkedin">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                            <label for="youtube" class="col-sm-4 control-label">Youtube
+                                                            </label>
+                                                            <div class="col-sm-8">
+                                                                <input type="text" class="form-control" id="youtube"
+                                                                    name="youtube">
+                                                            </div>
+                                                        </div>
+    
+
+
+                                        <div class="form-group">
+                                                <label for="confweight" class="col-sm-4 control-label">Conference Sort
+                                                </label>
+                                                <div class="col-sm-8">
+                                                        <input type="text" class="form-control" id="confWght"
+                                                        required  name="conferenceWeight"> 
+                                                    <div class="help-block with-errors" pattern="[0-9]+" data-error="Please enter valid number ."></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                    <label for="sessionweight" class="col-sm-4 control-label">Session Sort
+                                                    </label>
+                                                    <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="sessionWght"
+                                                            required   name="sessionWeight" pattern="[0-9]+" data-error="Please enter valid number ."> 
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+    
+                                        <div class="form-group"><label for="bio"
+                                            class="col-sm-4 control-label">Bio</label>
+                                            <div class="col-sm-8">
+                                                <textarea type="text"
+                                                required  class="form-control" id="bioo" rows="4" maxlength="300"
+                                                 name="bio" required=""  data-error="Please enter details."></textarea>
+                                                 <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row text-center m-t-10"><input
+                                            class="btn btn-cons btn-rounded btn-success m-t-20" id="submitbutton" value="Create"
+                                            type="submit">
+                                        </div>
+                                        
+                                            </form>
+                                        </div>
+                                                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{template "securePageFooter.html" .}}
+    
+</div>
+
+{{template "secureFooter.html" .}}
+<script>
+    $(document).ready(function() {
+        $('#addspeaker').hide()
+  });
+
+    $('#speakerform').submit(function( event ) {
+         console.log("form submit")
+         var email=$("#speakeremail").val()
+         var sessionid=$("#sessionid").val()
+         var confid=$("#confereceiD").val()
+         var data={Email:email,SessionID:sessionid,ConferenceID:confid}
+         $.ajax({
+    url: '/admin/conferences/speaker/search ',
+    type:"POST",
+    data,
+    success: function(vm){
+        console.log(vm.Status)
+        if (vm.data=="exist"){
+            $('#searchform').hide()
+            $('#addspeaker').show()
+           $('#firstname').val(vm.user.FirstName)
+           $('#lastname').val(vm.user.LastName)
+           $('#mail').val(vm.user.Email)
+           $('#bioo').val(vm.user.Bio)
+           $('#phone').val(vm.user.PhoneNumber)
+           $('#designation').val(vm.user.Designation)
+           $('#org').val(vm.user.Organization)
+           $('#userid').val(vm.user.ID)
+           $('#facebook').val(vm.user.Facebook )     
+           $('#youtube').val(vm.user.Youtube )
+           $('#linkedin').val(vm.user.Linkedin)
+           $('#twitter').val(vm.user.Twitter)
+           $("#bioo").focus()
+           if(vm.confWeight>=0){
+            $('#confWght').val(vm.confWeight)
+           }
+           if(vm.sessionWeight>=0){
+            $("#submitbutton").val("Update")
+            $("#sessionWght").val(vm.sessionWeight)
+
+           }
+        }
+        if (vm.data=="not exist"){
+            $('#searchform').hide()
+            $('#addspeaker').show()
+            $('#userid').val("")
+        }
+    }
+  })
+       event.preventDefault();
+});
+    
+</script>

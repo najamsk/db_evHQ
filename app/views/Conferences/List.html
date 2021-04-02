@@ -1,0 +1,147 @@
+{{set . "title" "Home"}}
+{{set . "navTitle" "Conferences - list"}}
+{{template "secureHeader.html" .}}
+
+<div class="page-content-wrapper">
+    <div class="content sm-gutter">
+        <div class="container-fluid m-t-25">
+            <div class="row">
+                <div class="col-xlg-2 col-lg-4 col-sm-6 m-b-10 cursor-pointer">
+                    <div class="panel no-border no-margin">
+                        <div class="container-xs-height full-height">
+                            <div class="row-xs-height">
+                                <div class="col-xs-height col-top">
+                                    <div class="panel-heading  top-left top-right">
+                                        <div class="panel-title text-black"><span
+                                                class="font-montserrat fs-11 all-caps">
+                                                Active
+                                                <i class="fa fa-chevron-right"></i></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-xs-height">
+                                <div class="col-xs-height col-top">
+                                    <div class="p-l-20 p-t-60 p-b-40 p-r-20">
+                                        <h4 class="no-margin p-b-5 overflow-ellipsis">
+                                            Lift Pakistan 2019
+                                        </h4>
+                                        <div class="normal-text hint-text overflow-ellipsis">
+                                            <span>15 Nov to 20 Nov, 2019</span></div>
+                                        <hr><span
+                                            class="small hint-text pull-left overflow-ellipsis"><span
+                                                class="bold">103</span> sold /
+                                            <span class="bold">1,315</span>
+                                            total Tickets
+                                           </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-xs-height">
+                                <div class="col-xs-height col-bottom">
+                                    <div class="progress progress-small m-b-0">
+                                        <div class="progress-bar device-quota-bar progress-bar-danger"
+                                            data-progress="10" data-total="1315"
+                                            style="width: 0.760456%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="col-xlg-2 col-lg-4 col-sm-6 m-b-10 cursor-pointer" data-toggle="modal"
+                    data-target="#create-app-modal">
+                    <div class="panel no-border no-margin">
+                        <div class="container-xs-height full-height">
+                            <div class="new-app-container">
+                                <div class="new-app">
+                                    <h1 class="text-danger"><i class="fa fa-cube"></i></h1>
+                                    <h4 class="m-t-10">Create New App</h4>
+                                </div>
+                            </div>
+                            <div class="row-xs-height">
+                                <div class="col-xs-height col-bottom">
+                                    <div class="progress progress-small m-b-0">
+                                        <div class="progress-bar device-quota-bar progress-bar-danger"
+                                            data-progress="0" data-total="100" style="width: 0%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="modal fade slide-up disable-scroll" id="create-app-modal" tabindex="-1"
+                role="dialog" aria-labelledby="modalSlideUpLabel" aria-hidden="false">
+                <div class="modal-dialog">
+                    <div class="modal-content-wrapper">
+                        <div class="modal-content">
+                            <div class="modal-header clearfix text-left"><button type="button"
+                                    class="close" data-dismiss="modal" aria-hidden="true"><i
+                                        class="fa fa-close"></i></button>
+                                <h5 class="m-t-0"><span class="semi-bold">Create App</span></h5>
+                                <p>Get started by naming your app and configuring at least one platform
+                                </p>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-group-default required">
+                                                <label>App Name</label><input type="text"
+                                                    class="form-control" maxlength="50" required="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h5 class="m-t-15 m-b-15"><span class="semi-bold">Platforms</span>
+                                    </h5>
+                                    <div class="row">
+                                        <div class="col-sm-6 m-b-10">
+                                            <div class="input-group"><span class="input-group-addon"><i
+                                                        class="fa fa-android"></i></span><input
+                                                    type="text"
+                                                    placeholder="Android Package Name (optional)"
+                                                    maxlength="100" class="form-control"></div>
+                                        </div>
+                                        <div class="col-sm-6 m-b-10">
+                                            <div class="input-group"><span class="input-group-addon"><i
+                                                        class="fa fa-apple"></i></span><input
+                                                    type="text" placeholder="iOS Bundle ID (optional)"
+                                                    maxlength="100" class="form-control"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 m-b-10">
+                                            <div class="input-group"><span class="input-group-addon"><i
+                                                        class="fa fa-globe"></i></span><input
+                                                    type="text"
+                                                    placeholder="Web Push Hostname (optional)"
+                                                    maxlength="100" class="form-control">
+                                                <div class="input-tooltip" title=""
+                                                    data-toggle="tooltip" data-placement="left"
+                                                    data-trigger="hover"
+                                                    data-original-title="Send notifications to your website visitors by entering your hostname (www.example.com)">
+                                                    <i class="fa fa-question-circle hint-text"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row m-t-40 text-center"><button type="submit"
+                                            class="btn btn-danger btn-cons">Create</button></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{template "securePageFooter.html" .}}
+</div>
+
+
+
+
+
+{{template "secureFooter.html" .}}
